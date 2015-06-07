@@ -1,0 +1,42 @@
+== Hello in Cashplay.co
+
+What you are looking at is test app for everybody who wahts to work with us :) :) :)
+
+Dont worry, first of all what you got in your hands is only plain rails app using rails 4.0.10, so I will bother you with basic setup:
+
+1. fork this repository
+
+2. bundle install
+
+3. For purpose of this demonsration please use rails default DB
+
+== What to do here ?
+
+Please after dealing with one of the points or if doing couple together do a commit with correct name.
+If you dont know something, its not a problem, skip it, dont waste too much time on it.
+There is no need to spend too much time with UI.
+
+1. install slim gem  and from now on use it for templates
+
+2. App should be able to manage Users, they got name, surname, email, phone
+
+3. Divide users into two groups: Admin, Manager. Admin should be divided. (STI)
+
+4. If you know what bootstrap is, try bootstrap-sass gem to ease your UI work (if not familiar, skip :) )
+
+5. Lets start with simple TODO list. Create CRUD for tasks, as well as marking them as done.
+5. BONUS - Would be really nice if I could attach file to task ;)
+
+6. Try to make marking tasks with Ajax (CoffeeScript appreciated, but please do not use convertor like js2.coffe, rather write js, its ok :) )
+
+7. Please use Drag&Drop to change position of tasks.
+
+8. We want tasks to have categories. Crate CRUD for cathegories + allow to choose category for task and display it in TODO list
+
+9. use before filter to display number of undone tasks in layout
+
+10. If devise is a bit familiar, try to create login for admins and managers (together, do not make differences now)
+
+11. We are trying to be correct with this app, so for sure now it misses only tests :) please dont write them, just in Rails.root.join("testing.txt") write how would you go about it :)
+
+12. What would you say this app is missing, any suggestions? Please write all in Rails.root.join("feedback.txt")
