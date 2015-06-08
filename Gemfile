@@ -6,6 +6,9 @@ gem 'rails', '4.0.10'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+# Devise is a flexible authentication solution
+gem 'devise'
+
 # Template language
 gem 'slim'
 
