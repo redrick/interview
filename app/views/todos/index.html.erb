@@ -1,0 +1,33 @@
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %>
+
+<h1>TODO</h1>
+
+<table>
+  <tr>
+    <th>Text</th>
+    <th>Category</th>
+    <th>Done?</th>
+  </tr>
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.text %></td>
+    <td><%= task.category.name %></td>
+    <td><%= check_box_tag "checkbox-" + task.id.to_s, 
+      task.done,  # value
+      task.done,  # checked
+      class: "task-checkbox",
+      data: {
+        id: task.id
+      } %>
+    </td>
+  </tr>
+<% end %>
+</table>

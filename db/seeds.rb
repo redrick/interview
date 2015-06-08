@@ -12,6 +12,7 @@ admin = Admin.create!(
   surname: "Hrasko",
   email: "janko@hrasko.sk",
   phone: "+420 123 456",
+  password: "janko123",
 )
 
 manager = Manager.create!(
@@ -19,6 +20,7 @@ manager = Manager.create!(
   surname: "Vesela",
   email: "marienka@vesela.sk",
   phone: "+420 555 555",
+  password: "marienka123",
 )
 
 
