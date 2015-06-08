@@ -9,8 +9,9 @@ gem 'sqlite3'
 # Template language
 gem 'slim'
 
-# Use SCSS for stylesheets
+# Use SASS for stylesheets, with bootstrap support
 gem 'sass-rails', '~> 4.0.2'
+gem 'bootstrap-sass', '~> 3.3.4'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
