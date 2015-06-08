@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $(".task-checkbox").click(function() {
+    var id = $(this).data("id");
+    
+    $.post("/tasks/" + id + "/toggle").done(function(data) {
+    });
+  });
+});
