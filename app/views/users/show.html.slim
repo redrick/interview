@@ -1,8 +1,11 @@
-h1 User
+h1.page-header
+  | User
+  .pull-right
+    => link_to 'Users list', :users, class: :'btn btn-default'
+    => link_to 'Edit', [:edit, @user], class: :'btn btn-primary'
+    = link_to 'Delete', @user, class: :'btn btn-danger', data: { confirm: 'Are you sure?' }, method: :delete
 
-p = link_to 'Users list', :users
-
-dl
+dl.dl-horizontal
 
   dt Name
   dd = @user.name
@@ -15,6 +18,3 @@ dl
   
   dt Phone
   dd = @user.phone
-
-p = link_to 'Edit', [:edit, @user]
-p = link_to 'Delete', @user, data: { confirm: 'Are you sure?' }, method: :delete

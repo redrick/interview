@@ -1,8 +1,9 @@
-h1 Users list
+h1.page-header
+  | Users list
+  .pull-right
+    = link_to 'Add user', [:new, :user], class: :'btn btn-primary'
 
-p = link_to 'Add user', [:new, :user]
-
-table
+table#users.table.table-bordered.table-condensed.table-hover.table-striped
 
   thead
     tr

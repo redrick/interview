@@ -47,3 +47,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'slim-rails'
+
+gem 'jquery-turbolinks'
+gem 'compass-rails'
+gem 'bootstrap-sass'

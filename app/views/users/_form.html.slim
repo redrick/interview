@@ -1,20 +1,32 @@
-= form_for @user do |f|
+= form_for @user, html: { class: :'form-horizontal' } do |f|
 
-  p = f.label :name
-  p = f.text_field :name
+  .form-group
+    = f.label :name, class: :'col-md-2 control-label'
+    .col-md-10
+      = f.text_field :name, class: :'form-control'
   
-  p = f.label :surname
-  p = f.text_field :surname
+  .form-group
+    = f.label :surname, class: :'col-sm-2 control-label'
+    .col-md-10
+      = f.text_field :surname, class: :'form-control'
+
+  .form-group
+    = f.label :email, class: :'col-sm-2 control-label'
+    .col-md-10
+      = f.text_field :email, class: :'form-control'
+
+  .form-group
+    = f.label :phone, class: :'col-sm-2 control-label'
+    .col-md-10
+      = f.text_field :phone, class: :'form-control'
   
-  p = f.label :email
-  p = f.text_field :email
+  .form-group
+    .col-md-offset-2.col-md-10
+      label
+        => f.check_box :type, {}, 'Admin', 'User'
+        span Admin
   
-  p = f.label :phone
-  p = f.text_field :phone
-  
-  p: label
-    = f.check_box :type, {}, 'Admin', 'User'
-    span Admin
-  
-  p = button_tag 'Save', type: :submit
-  p = link_to 'Cancel', @user.new_record? ? :users : @user
+  .form-group
+    .col-md-offset-2.col-md-10
+      => button_tag 'Save', class: :'btn btn-primary', type: :submit
+      = link_to 'Cancel', @user.new_record? ? :users : @user
