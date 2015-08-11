@@ -2,6 +2,7 @@ class Task < ActiveRecord::Base
   scope :done, -> { where(done: true) }
   scope :undone, -> { where(done: false) }
   
+  belongs_to :category
   belongs_to :user
   
   has_attached_file :attachment

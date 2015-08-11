@@ -1,0 +1,11 @@
+h1.page-header
+  | Category
+  .pull-right
+    => link_to 'Categories list', :categories, class: :'btn btn-default'
+    => link_to 'Edit', [:edit, @category], class: :'btn btn-primary'
+    = link_to 'Delete', @category, class: :'btn btn-danger', data: { confirm: 'Are you sure?' }, method: :delete
+
+dl.dl-horizontal
+
+  dt Name
+  dd = @category.name

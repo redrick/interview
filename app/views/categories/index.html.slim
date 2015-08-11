@@ -1,0 +1,15 @@
+h1.page-header
+  | Cateogries list
+  .pull-right
+    = link_to 'Add category', [:new, :category], class: :'btn btn-primary'
+
+table#categories.table.table-bordered.table-condensed.table-hover.table-striped
+
+  thead
+    tr
+      th Actions
+      th Name
+
+  tbody
+    - @categories.each do |category|
+      = render category

@@ -1,5 +1,6 @@
 tr
   td = link_to 'Show', [@user, task], class: :'btn btn-primary btn-xs'
+  td = task.category
   td = task.title
   td = task.description
   td = toggle [:toggle_done, @user, task], task.done?

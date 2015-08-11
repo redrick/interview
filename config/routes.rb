@@ -54,7 +54,9 @@ Interview::Application.routes.draw do
   #     resources :products
   #   end
   
-  root to: 'users#index'
+  root to: 'welcome#index'
+  
+  resources :categories
   
   resources :users, type: 'User' do
     resources :tasks do

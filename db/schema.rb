@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811115442) do
+ActiveRecord::Schema.define(version: 20150811125737) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tasks", force: true do |t|
     t.integer  "user_id"
@@ -24,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150811115442) do
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
+    t.integer  "category_id"
   end
 
   add_index "tasks", ["done"], name: "index_tasks_on_done"
