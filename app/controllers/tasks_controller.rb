@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :fetch_user
+  before_action :undone_tasks, only: :index
   before_action :fetch_task, only: [:destroy, :toggle_done, :edit, :show, :update]
   
   def create
@@ -53,5 +54,9 @@ class TasksController < ApplicationController
   
   def task_params
     params.require(:task).permit(:category_id, :title, :description, :attachment)
+  end
+  
+  def undone_tasks
+    @undone_tasks = @user.tasks.undone
   end
 end

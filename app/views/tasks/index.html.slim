@@ -1,7 +1,7 @@
 = render 'user'
   
 h2
-  | Tasks list
+  | Tasks list (<span id="undone-tasks">#{@undone_tasks.size}</span> undone tasks)
   .pull-right
     = link_to 'Add task', [:new, @user, :task], class: :'btn btn-primary'
 
