@@ -1,0 +1,18 @@
+= render 'user'
+
+h2
+  | Task
+  .pull-right
+    => link_to 'Tasks list', [@user, :tasks], class: :'btn btn-default'
+    => link_to 'Edit', [:edit, @user, @task], class: :'btn btn-primary'
+    => link_to 'Done', [:done, @user, @task], method: :patch, class: :'btn btn-success' unless @task.done?
+    = link_to 'Delete', [@user, @task], class: :'btn btn-danger', data: { confirm: 'Are you sure?' }, method: :delete
+
+dl.dl-horizontal
+
+  dt Title
+  dd = @task.title
+  
+  dt Description
+  dd = @task.description
+  

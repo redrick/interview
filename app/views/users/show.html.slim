@@ -18,3 +18,6 @@ dl.dl-horizontal
   
   dt Phone
   dd = @user.phone
+  
+  dt Tasks
+  dd = link_to "#{@user.tasks.undone.size}/#{@user.tasks.size}", [@user, :tasks]

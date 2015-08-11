@@ -1,0 +1,8 @@
+= render 'user'
+
+h2
+  | Add task
+  .pull-right
+    = link_to 'Tasks list', [@user, :tasks], class: :'btn btn-default'
+
+= render 'form'

@@ -1,0 +1,7 @@
+tr
+  td
+    = link_to 'Show', [@user, task], class: :'btn btn-primary btn-xs'
+    = link_to 'Done', [:done, @user, task], method: :patch, class: :'btn btn-success btn-xs' unless task.done?
+  td = task.title
+  td = task.description
+  td = task.done? ? 'Done' : 'To do'

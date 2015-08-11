@@ -55,6 +55,20 @@ Interview::Application.routes.draw do
   #   end
   
   root to: 'users#index'
-  resources :users
-  resources :admins, controller: 'users', type: 'Admin'
+  
+  resources :users, type: 'User' do
+    resources :tasks do
+      member do
+        patch :done
+      end
+    end
+  end
+  
+  resources :admins, controller: 'users', type: 'Admin' do
+    resources :tasks do
+      member do
+        patch :done
+      end
+    end
+  end
 end
