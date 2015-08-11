@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :fetch_user
-  before_action :fetch_task, only: [:destroy, :done, :edit, :show, :update]
+  before_action :fetch_task, only: [:destroy, :toggle_done, :edit, :show, :update]
   
   def create
     @task = Task.new(task_params)
@@ -21,17 +21,16 @@ class TasksController < ApplicationController
     end
   end
   
-  def done
-    @task.update_column(:done, true)
-    redirect_to :back
-  end
-  
   def index
     @tasks = @user.tasks
   end
   
   def new
     @task = Task.new
+  end
+  
+  def toggle_done
+    @task.toggle!(:done)
   end
   
   def update

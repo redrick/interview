@@ -59,7 +59,7 @@ Interview::Application.routes.draw do
   resources :users, type: 'User' do
     resources :tasks do
       member do
-        patch :done
+        patch :toggle_done
       end
     end
   end
@@ -67,7 +67,7 @@ Interview::Application.routes.draw do
   resources :admins, controller: 'users', type: 'Admin' do
     resources :tasks do
       member do
-        patch :done
+        patch :toggle_done
       end
     end
   end

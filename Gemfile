@@ -53,3 +53,5 @@ gem 'compass-rails'
 gem 'bootstrap-sass'
 
 gem 'paperclip'
+
+gem 'font-awesome-sass'
