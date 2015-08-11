@@ -1,0 +1,12 @@
+nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    
+    .navbar-header
+      button.navbar-toggle.collapsed data-target="#main-nav" data-toggle="collapse" type="button"
+        i.fa.fa-bars
+
+      = link_to 'Todo list', :root, class: :'navbar-brand'
+
+    #main-nav.collapse.navbar-collapse
+      = render 'actions_nav'
+      = render 'session_nav'

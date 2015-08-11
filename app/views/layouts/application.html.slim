@@ -1,0 +1,14 @@
+doctype html
+
+html
+
+  head = render 'head'
+
+  body
+  
+    header = render 'header'
+    
+    - if flash.keys.length > 0
+      = render 'flash'
+  
+    main.container-fluid = yield

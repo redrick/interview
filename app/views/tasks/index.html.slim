@@ -1,0 +1,20 @@
+= render 'user'
+  
+h2
+  | Tasks list (<span id="undone-tasks">#{@undone_tasks.size}</span> undone tasks)
+  .pull-right
+    = link_to 'Add task', [:new, @user, :task], class: :'btn btn-primary'
+
+table#tasks.table.table-bordered.table-condensed.table-hover.table-striped
+
+  thead
+    tr
+      th Actions
+      th Category
+      th Title
+      th Description
+      th Done
+
+  tbody
+    - @tasks.each do |task|
+      = render task

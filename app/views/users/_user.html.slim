@@ -1,0 +1,8 @@
+tr
+  td = link_to 'Show', user, class: :'btn btn-primary btn-xs'
+  td = user.name
+  td = user.surname
+  td = user.email
+  td = user.phone
+  td = user.is_a?(User::Admin) ? 'Admin' : 'Manager'
+  td = link_to "#{user.tasks.undone.size}/#{user.tasks.size}", [user, :tasks]

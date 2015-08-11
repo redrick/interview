@@ -1,0 +1,26 @@
+= form_for [@user, @task], html: { class: :'form-horizontal' } do |f|
+
+  .form-group
+    = f.label :category_id, class: :'col-md-2 control-label'
+    .col-md-10
+      = f.collection_select :category_id, Category.all, :id, :name, { include_blank: true }, class: :'form-control'
+      
+  .form-group
+    = f.label :title, class: :'col-md-2 control-label'
+    .col-md-10
+      = f.text_field :title, class: :'form-control'
+  
+  .form-group
+    = f.label :description, class: :'col-sm-2 control-label'
+    .col-md-10
+      = f.text_area :description, class: :'form-control'
+  
+  .form-group
+    = f.label :attachment, class: :'col-sm-2 control-label'
+    .col-md-10
+      = f.file_field :attachment, class: :'form-control'
+
+  .form-group
+    .col-md-offset-2.col-md-10
+      => button_tag 'Save', class: :'btn btn-primary', type: :submit
+      = link_to 'Cancel', @task.new_record? ? [@user, :tasks] : [@user, @task]

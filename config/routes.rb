@@ -53,4 +53,26 @@ Interview::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  root to: 'welcome#index'
+  
+  resources :categories
+  
+  devise_for :users
+  
+  resources :users, except: [:create, :new], type: 'User' do
+    resources :tasks do
+      member do
+        patch :toggle_done
+      end
+    end
+  end
+  
+  resources :admins, controller: 'users', except: [:create, :new], type: 'Admin' do
+    resources :tasks do
+      member do
+        patch :toggle_done
+      end
+    end
+  end
 end

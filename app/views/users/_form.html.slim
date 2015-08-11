@@ -1,0 +1,32 @@
+= form_for @user, html: { class: :'form-horizontal' } do |f|
+
+  .form-group
+    = f.label :name, class: :'col-md-2 control-label'
+    .col-md-10
+      = f.text_field :name, class: :'form-control'
+  
+  .form-group
+    = f.label :surname, class: :'col-sm-2 control-label'
+    .col-md-10
+      = f.text_field :surname, class: :'form-control'
+
+  .form-group
+    = f.label :email, class: :'col-sm-2 control-label'
+    .col-md-10
+      = f.text_field :email, class: :'form-control'
+
+  .form-group
+    = f.label :phone, class: :'col-sm-2 control-label'
+    .col-md-10
+      = f.text_field :phone, class: :'form-control'
+  
+  .form-group
+    .col-md-offset-2.col-md-10
+      label
+        => f.check_box :type, {}, 'Admin', 'User'
+        span Admin
+  
+  .form-group
+    .col-md-offset-2.col-md-10
+      => button_tag 'Save', class: :'btn btn-primary', type: :submit
+      = link_to 'Cancel', @user.new_record? ? :users : @user

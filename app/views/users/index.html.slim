@@ -1,0 +1,17 @@
+h1.page-header Users list
+
+table#users.table.table-bordered.table-condensed.table-hover.table-striped
+
+  thead
+    tr
+      th Actions
+      th Name
+      th Surname
+      th Email
+      th Phone
+      th Type
+      th Tasks
+
+  tbody
+    - @users.each do |user|
+      = render user

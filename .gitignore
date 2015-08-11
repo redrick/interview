@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore RVM development files
+.ruby-*
+
+# Ignore paperclip filesystem storage
+/public/system

@@ -1,0 +1,13 @@
+Lack of:
+  * i18n
+  * pagination
+  * delete task attachments
+  * separation between administration environment and signed-in user todo list
+
+I didn't understand why only Admin should be STI. Probably I misanderstood somthing, but to separate only Admin I presupposed that normal user are all Managers.
+
+I didn't implement the drag and drop task at all because actually I don't know a fast way to do it and I was late on the other tasks.
+
+Maybe, I didn't understand the task number 10 "use before filter to display number of undone tasks in layout".
+
+The users list is not optimized. I added "number of tasks done over all" just for fun, but without pagination it would be very expensive in terms of database queries.

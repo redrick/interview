@@ -1,0 +1,26 @@
+= render 'user'
+
+h2
+  | Task
+  .pull-right
+    => link_to 'Tasks list', [@user, :tasks], class: :'btn btn-default'
+    => link_to 'Edit', [:edit, @user, @task], class: :'btn btn-primary'
+    = link_to 'Delete', [@user, @task], class: :'btn btn-danger', data: { confirm: 'Are you sure?' }, method: :delete
+
+dl.dl-horizontal
+
+  dt Category
+  dd = @task.category
+
+  dt Title
+  dd = @task.title
+  
+  dt Description
+  dd = @task.description
+  
+  dt Attachment
+  dd = link_to "#{@task.attachment_file_name} (#{number_to_human_size @task.attachment_file_size})", @task.attachment.url if @task.attachment.exists?
+  
+  dt Done
+  dd = toggle [:toggle_done, @user, @task], @task.done?
+  

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.2'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.10'
 
@@ -43,3 +45,15 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'slim-rails'
+
+gem 'jquery-turbolinks'
+gem 'compass-rails'
+gem 'bootstrap-sass'
+
+gem 'paperclip'
+
+gem 'font-awesome-sass'
+
+gem 'devise'
