@@ -17,3 +17,6 @@
 
 # Ignore RVM development files
 .ruby-*
+
+# Ignore paperclip filesystem storage
+/public/system

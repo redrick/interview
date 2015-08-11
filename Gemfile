@@ -51,3 +51,5 @@ gem 'slim-rails'
 gem 'jquery-turbolinks'
 gem 'compass-rails'
 gem 'bootstrap-sass'
+
+gem 'paperclip'
