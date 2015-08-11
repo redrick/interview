@@ -4,8 +4,9 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to @category
+      redirect_to @category, notice: 'Category successfully created.'
     else
+      flash.now[:alert] = 'Category creation failed!'
       render :new
     end
   end
@@ -13,9 +14,9 @@ class CategoriesController < ApplicationController
   def destroy
     begin
       @category.destroy
-      redirect_to :categories
+      redirect_to :categories, notice: 'Category successfully destroyed.'
     rescue Exception => e
-      redirect_to @category
+      redirect_to @category, alert: 'Category deletion failed!'
     end
   end
   
@@ -29,8 +30,9 @@ class CategoriesController < ApplicationController
   
   def update
     if @category.update_attributes(category_params)
-      redirect_to @category
+      redirect_to @category, notice: 'Category successfully updated.'
     else
+      flash.now[:alert] = 'Category update failed!'
       render :edit
     end
   end

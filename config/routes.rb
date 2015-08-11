@@ -58,7 +58,9 @@ Interview::Application.routes.draw do
   
   resources :categories
   
-  resources :users, type: 'User' do
+  devise_for :users
+  
+  resources :users, except: [:create, :new], type: 'User' do
     resources :tasks do
       member do
         patch :toggle_done
@@ -66,7 +68,7 @@ Interview::Application.routes.draw do
     end
   end
   
-  resources :admins, controller: 'users', type: 'Admin' do
+  resources :admins, controller: 'users', except: [:create, :new], type: 'Admin' do
     resources :tasks do
       member do
         patch :toggle_done

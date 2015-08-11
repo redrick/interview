@@ -5,7 +5,18 @@ $(document).ready(function() {
 });
 
 var readyFunctions = function() {
+  fieldsWithErrors();
   toggles();
+}
+
+var fieldsWithErrors = function() {
+  $("span[data-behaviour='field_with_errors']").each(function(i, el) {
+    $(el).removeAttr('data-behaviour');
+    var $formGroup = $(el).closest('div.form-group');
+    var last = $formGroup.children().last();
+    last.append($(el));
+    $formGroup.addClass('has-error');
+  });
 }
 
 var toggles = function() {

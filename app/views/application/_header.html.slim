@@ -8,14 +8,5 @@ nav.navbar.navbar-default.navbar-fixed-top
       = link_to 'Todo list', :root, class: :'navbar-brand'
 
     #main-nav.collapse.navbar-collapse
-      ul#sections-nav.nav.navbar-nav
-        
-        li class="#{'active' if ['users', 'tasks'].include? params[:controller]}"
-          a href="#{url_for :users}"
-            i.fa.fa-users>
-            span.hidden-sm Users
-        
-        li class="#{'active' if params[:controller] == 'categories'}"
-          a href="#{url_for :categories}"
-            i.fa.fa-tags>
-            span.hidden-sm Categories
+      = render 'actions_nav'
+      = render 'session_nav'

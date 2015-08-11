@@ -11,19 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811125737) do
+ActiveRecord::Schema.define(version: 20150811133522) do
 
   create_table "categories", force: true do |t|
-    t.string   "name"
+    t.string   "name",       limit: 32, default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true
+
   create_table "tasks", force: true do |t|
     t.integer  "user_id"
-    t.string   "title"
+    t.string   "title",                   limit: 64, default: "",    null: false
     t.text     "description"
-    t.boolean  "done",                    default: false
+    t.boolean  "done",                               default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "attachment_file_name"
@@ -44,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150811125737) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+    t.string   "encrypted_password", default: "", null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

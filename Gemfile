@@ -55,3 +55,5 @@ gem 'bootstrap-sass'
 gem 'paperclip'
 
 gem 'font-awesome-sass'
+
+gem 'devise'

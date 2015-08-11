@@ -7,8 +7,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user = @user
     if @task.save
-      redirect_to [@user, @task]
+      redirect_to [@user, @task], notice: 'Task successfully created.'
     else
+      flash.now[:alert] = 'Task creation failed!'
       render :new
     end
   end
@@ -16,9 +17,9 @@ class TasksController < ApplicationController
   def destroy
     begin
       @task.destroy
-      redirect_to [@user, :tasks]
+      redirect_to [@user, :tasks], notice: 'Task successfully destroyed.'
     rescue Exception => e
-      redirect_to [@user, @task]
+      redirect_to [@user, @task], alert: 'Task deletion failed!'
     end
   end
   
@@ -36,8 +37,9 @@ class TasksController < ApplicationController
   
   def update
     if @task.update_attributes(task_params)
-      redirect_to [@user, @task]
+      redirect_to [@user, @task], notice: 'Task successfully updated.'
     else
+      flash.now[:alert] = 'Task update failed!'
       render :edit
     end
   end

@@ -2,7 +2,7 @@ class CreateTasks < ActiveRecord::Migration
   def change
     create_table :tasks do |t|
       t.belongs_to :user
-      t.string :title
+      t.string :title, default: '', limit: 64, null: false
       t.text :description
       t.boolean :done, default: false
       t.timestamps

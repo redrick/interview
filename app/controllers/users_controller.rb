@@ -4,8 +4,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user
+      redirect_to @user, notice: 'User successfully created.'
     else
+      flash.now[:alert] = 'User creation failed!'
       render :new
     end
   end
@@ -13,9 +14,9 @@ class UsersController < ApplicationController
   def destroy
     begin
       @user.destroy
-      redirect_to :users
+      redirect_to :users, notice: 'User successfully destroyed.'
     rescue Exception => e
-      redirect_to @user
+      redirect_to @user, alert: 'User deletion failed!'
     end
   end
   
@@ -29,8 +30,9 @@ class UsersController < ApplicationController
   
   def update
     if @user.update_attributes(user_params(@user.type || 'User'))
-      redirect_to @user
+      redirect_to @user, notice: 'User successfully updated.'
     else
+      flash.now[:alert] = 'User update failed!'
       render :edit
     end
   end
