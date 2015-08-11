@@ -1,0 +1,20 @@
+h1 User
+
+p = link_to 'Users list', :users
+
+dl
+
+  dt Name
+  dd = @user.name
+  
+  dt Surname
+  dd = @user.surname
+  
+  dt Email
+  dd = @user.email
+  
+  dt Phone
+  dd = @user.phone
+
+p = link_to 'Edit', [:edit, @user]
+p = link_to 'Delete', @user, confirm: 'Are you sure?', method: :delete

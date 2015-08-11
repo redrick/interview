@@ -1,0 +1,17 @@
+h1 Users list
+
+p = link_to 'Add user', [:new, :user]
+
+table
+
+  thead
+    tr
+      th Actions
+      th Name
+      th Surname
+      th Email
+      th Phone
+
+  tbody
+    - @users.each do |user|
+      = render user

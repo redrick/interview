@@ -1,0 +1,16 @@
+= form_for @user do |f|
+
+  p = f.label :name
+  p = f.text_field :name
+  
+  p = f.label :surname
+  p = f.text_field :surname
+  
+  p = f.label :email
+  p = f.text_field :email
+  
+  p = f.label :phone
+  p = f.text_field :phone
+  
+  p = button_tag 'Save', type: :submit
+  p = link_to 'Cancel', @user.new_record? ? :users : @user
