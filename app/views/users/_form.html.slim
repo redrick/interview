@@ -12,5 +12,9 @@
   p = f.label :phone
   p = f.text_field :phone
   
+  p: label
+    = f.check_box :type, {}, 'Admin', 'User'
+    span Admin
+  
   p = button_tag 'Save', type: :submit
   p = link_to 'Cancel', @user.new_record? ? :users : @user

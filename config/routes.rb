@@ -56,4 +56,5 @@ Interview::Application.routes.draw do
   
   root to: 'users#index'
   resources :users
+  resources :admins, controller: 'users', type: 'Admin'
 end

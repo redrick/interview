@@ -17,4 +17,4 @@ dl
   dd = @user.phone
 
 p = link_to 'Edit', [:edit, @user]
-p = link_to 'Delete', @user, confirm: 'Are you sure?', method: :delete
+p = link_to 'Delete', @user, data: { confirm: 'Are you sure?' }, method: :delete
