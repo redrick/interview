@@ -1,0 +1,9 @@
+Unit testing: I do not think are necessary because the models do not perform operations other than those of active record.
+
+Functional testing: for standard CRUD methods I think I would test each response status code and that any redirects would be correct.
+
+Integration testing: here I think I would spend the most of test timee; in practice I would write all the necessary tests in order to avoid what I have done to develop this application without tests (continue to test with the browser).
+
+rspec and capybara + capybara-webkit would be my tools
+
+I will avoid to test anything related to devise or active record.
