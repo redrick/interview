@@ -27,6 +27,20 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'bootstrap-sass', '~> 3.2.0'
+
+# Devise is a flexible authentication solution for Rails based on Warden.
+gem 'devise'
+
+# slim-rails provides Slim generators for Rails 3 and 4
+gem "slim-rails"
+
+# Preview mail in the browser instead of sending.
+gem "letter_opener", :group => :development
+
+# Easy file attachment management for ActiveRecord
+gem "paperclip", "~> 4.3"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -43,3 +57,7 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+end

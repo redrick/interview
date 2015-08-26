@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title
+      | Task manager
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    /! Header
+    = render partial: 'shared/header'
+    /! Main
+    .container
+      = render partial: 'shared/notice'
+      /! upper section
+      .row
+        - if user_signed_in?
+          = render partial: 'shared/left_sidebar'
+        /! /span-3
+        = yield
