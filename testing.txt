@@ -1,0 +1,1 @@
+For testing I would use Rspec, usually I write test for controller, models, routes, helper if there are some. To test application functionality I would use feature spec test because I find them more easy to understand and faster then let say Cucumber. 

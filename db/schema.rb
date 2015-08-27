@@ -11,7 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150826130112) do
+ActiveRecord::Schema.define(version: 20150827130158) do
+
+  create_table "assets", force: true do |t|
+    t.string   "asset_title"
+    t.integer  "task_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+  end
+
+  add_index "assets", ["task_id"], name: "index_assets_on_task_id"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tasks", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "position"
+    t.string   "status"
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["category_id"], name: "index_tasks_on_category_id"
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -28,6 +62,7 @@ ActiveRecord::Schema.define(version: 20150826130112) do
     t.datetime "updated_at",                          null: false
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

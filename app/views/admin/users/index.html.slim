@@ -1,0 +1,21 @@
+.col-sm-9
+  h1 Users
+
+  table.table.table-condensed.table-striped.table-hover
+    thead
+      tr
+        th Name
+        th Email
+        th Role
+        th Operations
+
+    tbody
+      - @users.each do |user|
+        tr
+          td = user.name
+          td = user.email
+          td = user.role
+          td 
+            p = link_to 'Show', '#'
+            p = link_to 'Edit', '#'
+  br

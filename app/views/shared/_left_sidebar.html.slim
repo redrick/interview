@@ -4,32 +4,23 @@
       | Menu
   hr/
   ul.nav.nav-stacked
+    li.dropdown
+      a.dropdown-toggle data-toggle="dropdown" href="#"
+        | Tasks
+        strong.caret
+      ul.dropdown-menu
+        li
+          = link_to 'Add new task', new_task_path, :class => 'navbar-link'
+        li
+          = link_to "List all tasks", tasks_path, :class => 'navbar-link'
+
     li
-      a href="javascript:;"
-        i.glyphicon.glyphicon-flash
-        | Alerts
-    li
-      a href="javascript:;"
-        i.glyphicon.glyphicon-link
-        | Links
-    li
-      a href="javascript:;"
-        i.glyphicon.glyphicon-list-alt
-        | Reports
-    li
-      a href="javascript:;"
-        i.glyphicon.glyphicon-book
-        | Books
-    li
-      a href="javascript:;"
-        i.glyphicon.glyphicon-briefcase
-        | Tools
-    li
-      a href="javascript:;"
-        i.glyphicon.glyphicon-time
-        | Real-time
-    li
-      a href="javascript:;"
-        i.glyphicon.glyphicon-plus
-        | Advanced..
+      a.dropdown-toggle data-toggle="dropdown" href="#"
+        | Catogories
+        strong.caret
+      ul.dropdown-menu
+        li
+          = link_to 'Add new category', new_category_path, :class => 'navbar-link'
+        li
+          = link_to "List all categories", categories_path, :class => 'navbar-link'
   hr/

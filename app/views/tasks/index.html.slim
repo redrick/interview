@@ -1,0 +1,27 @@
+.col-sm-9
+  h1 Listing tasks
+
+  table.table.table-condensed.table-striped.table-hover.sorted_table
+    thead
+      tr
+        th Name
+        th Description
+        th Category
+        th Status
+        th Operations
+
+    tbody
+      - @tasks.each do |task|
+        tr class=(task.finished? ? 'warning' : 'danger') id=(task.id) position=(task.position.nil? ? '1' : task.position)
+          td = task.name.truncate(20, separator: '...')
+          td = task.description.truncate(100, separator: '...')
+          td = task.category.name
+          td = task.status
+          td 
+            p = link_to 'Show', task
+            p = link_to 'Edit', edit_task_path(task)
+            p = link_to 'Destroy', task, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+  br
+
+  = link_to 'New Task', new_task_path

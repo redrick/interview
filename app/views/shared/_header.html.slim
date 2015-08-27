@@ -6,6 +6,7 @@
       = link_to 'TM', root_url, class: 'navbar-brand'
     .navbar-collapse.collapse
       ul.nav.navbar-nav.navbar-right
+        li
         - unless user_signed_in?
           li
             = link_to "Login", new_user_session_path, class: 'navbar-link'
