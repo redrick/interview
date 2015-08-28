@@ -1,0 +1,17 @@
+- if notice
+  .alert.alert-success.alert-dismissable
+    button.close aria-hidden="true" data-dismiss="alert" type="button"
+      | ×
+    h4
+      | Notice!
+    p
+      = notice
+
+- if alert
+  .alert.alert-danger.alert-dismissable
+    button.close aria-hidden="true" data-dismiss="alert" type="button"
+      | ×
+    h4
+      | Alert!
+    p
+      = alert

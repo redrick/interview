@@ -1,0 +1,366 @@
+doctype html
+html
+  head
+    title
+      | Interview
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    /! Header
+    #top-nav.navbar.navbar-inverse.navbar-static-top
+      .container
+        .navbar-header
+          button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+            span.icon-toggle
+          a.navbar-brand href="#"  Control Panel
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle data-toggle="dropdown" href="#" role="button"
+                i.glyphicon.glyphicon-user
+                | Admin
+                span.caret
+              ul#g-account-menu.dropdown-menu role="menu"
+                li
+                  a href="#"  My Profile
+                li
+                  a href="#"
+                    i.glyphicon.glyphicon-lock
+                    | Logout
+      /! /container
+    /! /Header
+    /! Main
+    .container
+      /! upper section
+      .row
+        .col-sm-3
+          /! left
+          h3
+            i.glyphicon.glyphicon-briefcase
+            | Toolbox
+          hr/
+          ul.nav.nav-stacked
+            li
+              a href="javascript:;"
+                i.glyphicon.glyphicon-flash
+                | Alerts
+            li
+              a href="javascript:;"
+                i.glyphicon.glyphicon-link
+                | Links
+            li
+              a href="javascript:;"
+                i.glyphicon.glyphicon-list-alt
+                | Reports
+            li
+              a href="javascript:;"
+                i.glyphicon.glyphicon-book
+                | Books
+            li
+              a href="javascript:;"
+                i.glyphicon.glyphicon-briefcase
+                | Tools
+            li
+              a href="javascript:;"
+                i.glyphicon.glyphicon-time
+                | Real-time
+            li
+              a href="javascript:;"
+                i.glyphicon.glyphicon-plus
+                | Advanced..
+          hr/
+        /! /span-3
+        .col-sm-9
+          /! column 2
+          h3
+            i.glyphicon.glyphicon-dashboard
+            | Dashboard
+          hr/
+          .row
+            /! center left
+            .col-md-7
+              .well
+                | Inbox Messages
+                span.badge.pull-right 3
+              hr/
+              .panel.panel-default
+                .panel-heading
+                  h4 Processing Status
+                .panel-body
+                  small Complete
+                  .progress
+                    .progress-bar.progress-bar-success aria-valuemax="100" aria-valuemin="0" aria-valuenow="72" role="progressbar" style=("width: 72%")
+                      span.sr-only 72% Complete
+                  small In Progress
+                  .progress
+                    .progress-bar.progress-bar-info aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" role="progressbar" style=("width: 20%")
+                      span.sr-only 20% Complete
+                  small At Risk
+                  .progress
+                    .progress-bar.progress-bar-danger aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" style=("width: 80%")
+                      span.sr-only 80% Complete
+                /! /panel-body
+              /! /panel
+            /! /col
+            /! center-right
+            .col-md-5
+              ul.nav.nav-justified
+                li
+                  a href="#"
+                    i.glyphicon.glyphicon-cog
+                li
+                  a href="#"
+                    i.glyphicon.glyphicon-heart
+                li.dropdown
+                  a.dropdown-toggle data-toggle="dropdown" href="#"
+                    i.glyphicon.glyphicon-comment
+                    span.count 3
+                  ul.dropdown-menu role="menu"
+                    li
+                      a href="#"  1. Is there a way..
+                    li
+                      a href="#"  2. Hello, admin. I would..
+                    li
+                      a href="#"
+                        strong All messages
+                li
+                  a href="#"
+                    i.glyphicon.glyphicon-user
+                li
+                  a data-toggle="modal" href="#addWidgetModal" title=("Add Widget")
+                    span.glyphicon.glyphicon-plus-sign
+              hr/
+              p
+                | This is a responsive dashboard-style layout that uses
+                | You can use this template as a starting point to create something more unique.
+              p
+                | Visit the Bootstrap Playground at
+                a href="http://www.bootply.com"  Bootply
+                | to tweak this layout, or discover 1000's of Bootstrap code examples and snippets.
+              hr/
+              .btn-group.btn-group-justified
+                a.btn.btn-info.col-sm-3 href="#"
+                  i.glyphicon.glyphicon-plus
+                  br/
+                  | Service
+                a.btn.btn-info.col-sm-3 href="#"
+                  i.glyphicon.glyphicon-cloud
+                  br/
+                  | Cloud
+                a.btn.btn-info.col-sm-3 href="#"
+                  i.glyphicon.glyphicon-cog
+                  br/
+                  | Tools
+                a.btn.btn-info.col-sm-3 href="#"
+                  i.glyphicon.glyphicon-question-sign
+                  br/
+                  | Help
+            /! /col-span-6
+          /! /row
+        /! /col-span-9
+      /! /row
+      /! /upper section
+      /! lower section
+      .row
+        .col-md-12
+          hr/
+          a href="#"
+            strong
+              i.glyphicon.glyphicon-list-alt
+              | Reports
+          hr/
+        .col-md-8
+          table.table.table-striped
+            thead
+              tr
+                th Visits
+                th ROI
+                th Source
+                th Description and Notes
+            tbody
+              tr
+                td 45
+                td 2.45%
+                td Direct
+                td
+                  | Sam sapien massa, aliquam in cursus ut, ullamcorper in tortor.
+                  | Aliquam mauris arcu, tristique a lobortis vitae, condimentum feugiat justo.
+              tr
+                td 289
+                td 56.2%
+                td Referral
+                td
+                  | After RWD massa, aliquam in cursus ut, ullamcorper in tortor.
+                  | Aliquam mauris arcu, tristique a lobortis vitae, condimentum feugiat justo.
+              tr
+                td 98
+                td 25%
+                td Type
+                td
+                  | Wil sapien massa, aliquam in cursus ut, ullamcorper in tortor.
+                  | Liquam mauris arcu, tristique a lobortis vitae, condimentum feugiat justo.
+              tr
+                td 109
+                td 8%
+                td ..
+                td
+                  | Forfoot aliquam in cursus ut, ullamcorper in tortor.
+                  | Okma mauris arcu, tristique a lobortis vitae, condimentum feugiat justo.
+              tr
+                td 34
+                td 14%
+                td ..
+                td
+                  | Mikel sapien massa, aliquam in cursus ut, ullamcorper in tortor.
+                  | Maliquam mauris arcu, tristique a lobortis vitae, condimentum feugiat justo.
+          hr/
+          /! tabs
+          .container
+            ul#myTab.nav.nav-tabs
+              li.active
+                a data-toggle="tab" href="#profile"  Profile
+              li
+                a data-toggle="tab" href="#messages"  Messages
+              li
+                a data-toggle="tab" href="#settings"  Settings
+            .tab-content
+              #profile.tab-pane.active
+                h4
+                  i.glyphicon.glyphicon-user
+                | Lorem profile dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                p
+                  | Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                  | dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                  | Aliquam in felis sit amet augue.
+              #messages.tab-pane
+                h4
+                  i.glyphicon.glyphicon-comment
+                | Message ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                p
+                  | Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                  | dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                  | Aliquam in felis sit amet augue.
+              #settings.tab-pane
+                h4
+                  i.glyphicon.glyphicon-cog
+                | Lorem settings dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                p
+                  | Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                  | dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                  | Aliquam in felis sit amet augue.
+          /! /tabs
+          hr/
+          .panel.panel-default
+            .panel-heading
+              h4 New Requests
+            .panel-body
+              .list-group
+                a.list-group-item.active href="#"  Hosting virtual mailbox serv..
+                a.list-group-item href="#"  Dedicated server doesn't..
+                a.list-group-item href="#"  RHEL 6 install on new..
+          hr/
+          .alert.alert-info
+            button.close data-dismiss="alert" type="button"  ×
+            | Please remember to
+            a href="#"  Logout
+            | for classified security.
+        .col-md-4
+          ul.nav.nav-pills.nav-stacked
+            li.nav-header
+            li
+              a href="#"
+                i.glyphicon.glyphicon-list
+                | Layouts &amp; Templates
+            li.divider
+            li
+              a href="#"
+                i.glyphicon.glyphicon-briefcase
+                | Toolbox
+            li
+              a href="#"
+                i.glyphicon.glyphicon-link
+                | Widgets
+            li
+              a href="#"
+                i.glyphicon.glyphicon-list-alt
+                | Reports
+            li
+              a href="#"
+                i.glyphicon.glyphicon-book
+                | Pages
+            li.divider
+            li
+              a href="#"
+                i.glyphicon.glyphicon-star
+                | Social Media
+          hr/
+          .panel.panel-default
+            .panel-heading
+              .panel-title
+                i.glyphicon.glyphicon-wrench.pull-right
+                h4 Submit Request
+            .panel-body
+              form.form.form-vertical
+                .control-group
+                  label Name
+                  .controls
+                    input.form-control placeholder=("Enter Name") type="text" /
+                .control-group
+                  label Title
+                  .controls
+                    input.form-control placeholder="Password" type="password" /
+                .control-group
+                  label Details
+                  .controls
+                    textarea.form-control
+                .control-group
+                  label Select
+                  .controls
+                    select.form-control
+                      option General Question
+                      option Server Issues
+                      option Billing Question
+                .control-group
+                  label
+                  .controls
+                    button.btn.btn-primary type="submit"
+                      | Post
+            /! /panel content
+          /! /panel
+          .panel.panel-default
+            .panel-heading
+              .panel-title
+                h4 Engagement
+            .panel-body
+              .col-xs-4.text-center
+                img.img-circle.img-responsive src="http://placehold.it/80/BBBBBB/FFF" /
+              .col-xs-4.text-center
+                img.img-circle.img-responsive src="http://placehold.it/80/EFEFEF/555" /
+              .col-xs-4.text-center
+                img.img-circle.img-responsive src="http://placehold.it/80/EEEEEE/222" /
+          /! /panel
+        /! /col
+      /! /row
+    /! /container
+    /! /Main
+    footer.text-center
+      | This Bootstrap 3 dashboard layout is compliments of
+      a href="http://www.bootply.com/85850"
+        strong Bootply.com
+    #addWidgetModal.modal
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+            h4.modal-title Add Widget
+          .modal-body
+            p Add a widget stuff here..
+          .modal-footer
+            a.btn href="#"  Close
+            a.btn.btn-primary href="#"  Save changes
+        /! /.modal-content
+      /! /.modal-dalog
+    /! /.modal
+    /! script references
+    / = yield

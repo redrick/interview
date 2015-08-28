@@ -1,0 +1,38 @@
+.col-sm-3
+  h3
+    i.glyphicon.glyphicon-briefcase
+      | Menu
+  hr/
+  ul.nav.nav-stacked
+    li.dropdown
+      a.dropdown-toggle data-toggle="dropdown" href="#"
+        | Tasks
+        span.badge
+          = count_tasks
+        strong.caret
+      ul.dropdown-menu
+
+        li
+          = link_to 'Add new task', new_task_path, :class => 'navbar-link'
+        li
+          = link_to "List all tasks", tasks_path, :class => 'navbar-link'
+
+    li
+      a.dropdown-toggle data-toggle="dropdown" href="#"
+        | Categories
+        strong.caret
+      ul.dropdown-menu
+        li
+          = link_to 'Add new category', new_category_path, :class => 'navbar-link'
+        li
+          = link_to "List all categories", categories_path, :class => 'navbar-link'
+
+    - if current_user.admin?
+      li
+        a.dropdown-toggle data-toggle="dropdown" href="#"
+          | Members
+          strong.caret
+        ul.dropdown-menu
+          li
+            = link_to "List all members", admin_members_path, :class => 'navbar-link'
+  hr/

@@ -1,0 +1,21 @@
+.col-sm-9
+  h2
+    | Edit
+    = @user.name
+  = form_for @user, url: admin_member_path(@user.to_param), html: { method: :put } do |f|
+    .form-group
+      = f.label :first_name
+      = f.email_field :first_name, autofocus: true, class: 'form-control'
+    .form-group
+      = f.label :last_name
+      = f.email_field :last_name, class: 'form-control'
+    .form-group
+      = f.label :email
+      = f.email_field :email, class: 'form-control'
+    .form-group
+      = f.label :role
+      = f.select :type, options_for_select([['Admin', 'UserAdmin'], ['Manager', 'UserManager']], @user.type), { required: true }, { class: 'form-control' }
+    .form-group
+      = f.submit "Update", class: 'btn btn-primary'
+
+  = link_to "Back", :back

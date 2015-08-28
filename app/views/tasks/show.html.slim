@@ -1,0 +1,22 @@
+.col-sm-9
+  p#notice = notice
+
+  p
+    strong Name:
+    = @task.name
+  p
+    strong Description:
+    = @task.description
+  p
+    strong Status:
+    = @task.status
+  p
+    strong Category:
+    = @task.category.name
+
+  / - if @task.assets.any?
+  = render partial: 'shared/asset', collection: @task.assets
+
+  = link_to 'Edit', edit_task_path(@task)
+  '|
+  = link_to 'Back', tasks_path

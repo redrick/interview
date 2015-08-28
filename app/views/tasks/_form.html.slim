@@ -1,0 +1,33 @@
+= form_for @task do |f|
+  - if @task.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+      ul
+        - @task.errors.full_messages.each do |message|
+          li = message
+
+  = f.hidden_field :user_id, value: @task.new_record? ? current_user.id : @task.user_id
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
+  .form-group
+    = f.label :status
+    = f.select :status, options_for_select(Task::STATUS, @task.status),{ required: true }, {class:'form-control'} 
+
+  .form-group
+    = f.label :category
+    = f.collection_select :category_id, @categories,
+                          :id,:name,
+                          { selected: @task.category_id, include_blank: true }, 
+                          { class:'form-control' }
+                          
+  = render partial: 'shared/asset', collection: @task.assets
+  = f.fields_for :assets, @task.assets.build do | builder |
+    .form-group
+      = builder.label :attachment
+      = builder.file_field :attachment
+
+  .form-group = f.submit nil, class: 'btn btn-primary'
