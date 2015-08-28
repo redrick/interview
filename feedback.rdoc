@@ -3,11 +3,14 @@ To use application please run `rake db:setup db:create dm:migrate db:seed`.
 
 This will create an admin user, also will populate `category` table with default data
 
-Current application allow to create only user with `Manager` role by default. To change the user role, you should go in admin area and change user role (this should be implemented :-)) 
+Current application allow to create only user with `Manager` role by default. To change the user role, you should go in admin area and change user role (this should be implemented :-))
 
 Deault user
 email: admin@tm.com
 password: qwertyuiop
+
+Yaaayyy I even go further and deployed on Heroku, here you can access it [cashplay-interview](https://cashplay-interview.herokuapp.com)
+
 == Feedback
 As a drawback I see STI for user entity due to increasing application complexity hard to maintain in future is application will require more roles also this will lead to many table columns with NULL value and each time when a new role will be added a new app deploy will be require.
 
