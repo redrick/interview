@@ -1,9 +1,9 @@
 == How to
-To use application please run `rake db:setup db:create dm:migrate db:seed`.
+To use application please run `rake db:setup db:create db:migrate db:seed`.
 
 This will create an admin user, also will populate `category` table with default data
 
-Current application allow to create only user with `Manager` role by default. To change the user role, you should go in admin area and change user role (this should be implemented :-))
+Current application allow to create only user with `Manager` role by default. To change the user role, you should go in admin area and change user role.
 
 Deault user
 email: admin@tm.com

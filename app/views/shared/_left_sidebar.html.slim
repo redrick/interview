@@ -9,6 +9,7 @@
         | Tasks
         strong.caret
       ul.dropdown-menu
+
         li
           = link_to 'Add new task', new_task_path, :class => 'navbar-link'
         li
@@ -16,11 +17,20 @@
 
     li
       a.dropdown-toggle data-toggle="dropdown" href="#"
-        | Catogories
+        | Categories
         strong.caret
       ul.dropdown-menu
         li
           = link_to 'Add new category', new_category_path, :class => 'navbar-link'
         li
           = link_to "List all categories", categories_path, :class => 'navbar-link'
+
+    - if current_user.is_admin?
+      li
+        a.dropdown-toggle data-toggle="dropdown" href="#"
+          | Members
+          strong.caret
+        ul.dropdown-menu
+          li
+            = link_to "List all members", admin_members_path, :class => 'navbar-link'
   hr/

@@ -15,7 +15,6 @@
           td = user.name
           td = user.email
           td = user.role
-          td 
-            p = link_to 'Show', '#'
-            p = link_to 'Edit', '#'
+          td
+            p = link_to 'Edit', edit_admin_member_path(user.to_param) if user.to_param != current_user.to_param
   br
