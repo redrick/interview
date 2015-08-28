@@ -31,6 +31,6 @@ class Admin::MembersController < ApplicationController
   end
 
   def only_for_admin?
-    redirect_to tasks_url, alert: "Only admin have access" unless current_user.is_admin?
+    redirect_to tasks_url, alert: "Only admin have access" unless current_user.admin?
   end
 end

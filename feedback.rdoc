@@ -13,4 +13,3 @@ Yaaayyy I even go further and deployed on Heroku, here you can access it [cashpl
 
 == Feedback
 As a drawback I see STI for user entity due to increasing application complexity hard to maintain in future is application will require more roles also this will lead to many table columns with NULL value and each time when a new role will be added a new app deploy will be require.
-

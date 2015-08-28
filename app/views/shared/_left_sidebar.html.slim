@@ -25,7 +25,7 @@
         li
           = link_to "List all categories", categories_path, :class => 'navbar-link'
 
-    - if current_user.is_admin?
+    - if current_user.admin?
       li
         a.dropdown-toggle data-toggle="dropdown" href="#"
           | Members

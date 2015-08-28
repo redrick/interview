@@ -6,28 +6,30 @@ class User < ActiveRecord::Base
 
   has_many :tasks
 
-  before_create :set_default_type, if: Proc.new { |user| user.type.nil? }
+  before_create :set_default_type, if: proc { |user| user.type.nil? }
 
-  def is_admin?
-		false
-	end
+  validates :first_name, :last_name, presence: true, length: { minimum: 3 }
+
+  def admin?
+    false
+  end
 
   def name
     "#{self.first_name} #{self.last_name}"
   end
 
   def role
-    raise 'Method is not implemented'
+    fails 'Method is not implemented'
   end
 
-  private 
+  private
 
-  # I know that is ugly but at the moment 
+  # I know that is ugly but at the moment
   # I cannot find a better/easier solution
   # to integrate STI with devise
   # I tried self.becomes!(UserManager)
   # but didn't work
   def set_default_type
-  	self.type = 'UserManager'
-	end
+    self.type = 'UserManager'
+  end
 end
