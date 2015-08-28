@@ -3,9 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.10'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
@@ -17,6 +14,9 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+# Use postgresql as the database for Active Record
+gem 'pg', group: [:production]
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -38,6 +38,8 @@ gem "slim-rails"
 # Preview mail in the browser instead of sending.
 gem "letter_opener", :group => :development
 
+gem 'rails_12factor', group: :production
+
 # Easy file attachment management for ActiveRecord
 gem "paperclip", "~> 4.3"
 
@@ -58,6 +60,9 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
