@@ -1,4 +1,4 @@
-tr class="task task-#{task.id} task-#{task.done ? 'done' : 'pending'}"
+tr class="task task-#{task.id} task-#{task.done ? 'done' : 'pending'}" data-id="#{task.id}"
   td = button_to toggle_task_path(task), remote: true, method: :patch, class: 'btn btn-link',
                   form: {class: 'task-toggle', data: {'task-id' => task.id}} do
     - if task.done

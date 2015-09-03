@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 
-  before_action :set_task, only: [:edit, :update, :toggle, :destroy]
+  before_action :set_task, only: [:edit, :update, :toggle, :reorder, :destroy]
 
   # GET /tasks
   # GET /tasks.json
@@ -54,6 +54,16 @@ class TasksController < ApplicationController
       format.html { render @task }
     end
   end
+
+  # PATCH/PUT /tasks/1/reorder
+  def reorder
+    respond_to do |format|
+      @task.order_position = params[:order_position]
+      @task.save
+      format.html { head :no_content }
+    end
+  end
+
 
   # DELETE /tasks/1
   # DELETE /tasks/1.json

@@ -48,3 +48,5 @@ end
 gem 'slim', '~> 3.0.6'
 gem 'slim-rails', '~> 3.0.1'
 gem 'bootstrap-sass', '~> 3.3.5.1'
+gem 'ranked-model', '~> 0.4.0'
+gem 'jquery-ui-rails', '~> 5.0.5'

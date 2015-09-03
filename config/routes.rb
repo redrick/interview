@@ -2,6 +2,7 @@ Interview::Application.routes.draw do
 
   resources :tasks do
     patch :toggle, on: :member
+    patch :reorder, on: :member
   end
 
   resources :managers, controller: :users, type: 'Manager'

@@ -1,6 +1,10 @@
 class Task < ActiveRecord::Base
 
+  include RankedModel
+  ranks :order
+
   # Scopes
+  default_scope { rank(:order) }
 
   # Associations
 
