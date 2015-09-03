@@ -1,5 +1,7 @@
 Interview::Application.routes.draw do
 
+  root to: "tasks#index"
+
   resources :categories, except: :show
 
   resources :tasks, except: :show do
