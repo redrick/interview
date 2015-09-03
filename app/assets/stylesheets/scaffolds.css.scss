@@ -30,7 +30,7 @@ a {
 }
 
 div {
-  &.field, &.actions {
+  &.form-group, &.actions {
     margin-bottom: 10px;
   }
 }
@@ -39,7 +39,7 @@ div {
   color: green;
 }
 
-.field_with_errors {
+.form-group_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
