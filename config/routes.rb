@@ -11,7 +11,7 @@ Interview::Application.routes.draw do
     end
   end
 
-  resources :managers, controller: :users, type: 'Manager'
-  resources :admins, controller: :users, type: 'Admin'
+  resources :managers, except: :show, controller: :users, type: 'Manager'
+  resources :admins, except: :show, controller: :users, type: 'Admin'
 
 end

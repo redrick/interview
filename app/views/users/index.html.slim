@@ -4,7 +4,7 @@ table.table
   tbody
     - @users.each do |user|
       tr
-        td = link_to [user.name, user.surname].join(' '), user
+        td = [user.name, user.surname].join(' ')
         td
           i.fa.fa-envelope-o.fa-lg
           |&nbsp;
