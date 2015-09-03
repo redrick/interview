@@ -1,5 +1,7 @@
 Interview::Application.routes.draw do
 
+  resources :categories
+
   resources :tasks do
     patch :toggle, on: :member
     patch :reorder, on: :member

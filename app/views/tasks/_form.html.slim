@@ -9,4 +9,8 @@
   .field
     = f.label :name
     = f.text_field :name
+  .field
+    = f.label :category
+    = f.select :category_id, Category.all.collect { |c| [ c.name, c.id ] }, include_blank: true
+
   = f.submit nil, class:"btn btn-success"

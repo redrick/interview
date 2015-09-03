@@ -7,6 +7,7 @@ class Task < ActiveRecord::Base
   default_scope { rank(:order) }
 
   # Associations
+  belongs_to :category
 
   # Validations
   validates :name, presence: true
