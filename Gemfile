@@ -43,3 +43,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Exrcise gems
+gem 'slim', '~> 3.0.6'
