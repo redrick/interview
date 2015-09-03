@@ -8,21 +8,20 @@ $(document).on 'ajax:before', '.task-toggle', () ->
 $(document).on 'ajax:success', '.task-toggle', (event, data, status, xhr) ->
   taskId = $(this).data('task-id')
   $(".tasks .task-#{taskId}").replaceWith(data)
-  init_sortable_td_width()
+  fix_name_category_width_for_reordering()
 
 
-init_sortable_td_width = ->
+fix_name_category_width_for_reordering = ->
   table_width = $('.tasks').width()
-  cells = $('.tasks').find('tr')[0].cells.length
-  desired_width = table_width / cells + 'px'
-  $('.tasks td').css('width', desired_width)
+  desired_width = table_width - 30 - 100 + 'px' # 30 (checkbox), 100 (actions)
+  $('.tasks td.task-name-category').css('width', desired_width)
 
-  
+
 $(document).on 'ready page:load', ->
 
   if $('.tasks').length > 0
 
-    init_sortable_td_width()
+    fix_name_category_width_for_reordering()
 
     $('.tasks').sortable(
       axis: 'y'

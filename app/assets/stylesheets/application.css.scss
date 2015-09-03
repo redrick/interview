@@ -16,6 +16,14 @@ body {
   padding-top: 70px;
 }
 
+.table-actions {
+  width: 100px;
+  text-align: right;
+  i {
+    margin: 0 10px;
+  }
+}
+
 
 /* TASKS */
 
@@ -24,8 +32,13 @@ body {
   vertical-align: middle;
 }
 
+.task-done {
+  width: 30px;
+}
+
 .task-name {
   font-weight: bold;
+  margin-right: 10px;
 }
 
 .task-done {
@@ -33,7 +46,7 @@ body {
     background: #f8f8f8;
     opacity: 0.5;
   }
-  >.task-name {
+  .task-name {
     text-decoration: line-through;
   }
 }

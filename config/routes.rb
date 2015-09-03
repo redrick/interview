@@ -1,10 +1,12 @@
 Interview::Application.routes.draw do
 
-  resources :categories
+  resources :categories, except: :show
 
-  resources :tasks do
-    patch :toggle, on: :member
-    patch :reorder, on: :member
+  resources :tasks, except: :show do
+    member do
+      patch :toggle
+      patch :reorder
+    end
   end
 
   resources :managers, controller: :users, type: 'Manager'

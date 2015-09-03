@@ -1,21 +1,16 @@
-h1 Listing categories
+h1 Categories
 
-table
-  thead
-    tr
-      th Name
-      th
-      th
-      th
-
+table.table
   tbody
     - @categories.each do |category|
       tr
         td = category.name
-        td = link_to 'Show', category
-        td = link_to 'Edit', edit_category_path(category)
-        td = link_to 'Destroy', category, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td.table-actions
+          = link_to edit_category_path(category) do
+            = edit_icon
+          = link_to category, data: {:confirm => 'Are you sure?'}, :method => :delete do
+            = delete_icon
 
 br
 
-= link_to 'New Category', new_category_path
+= link_to 'New Category', new_category_path, class:"btn btn-default"
