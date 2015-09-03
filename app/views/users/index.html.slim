@@ -1,4 +1,4 @@
-h1 Listing users
+h1 Listing #{@user_class.to_s.pluralize}
 
 table
   thead
@@ -19,9 +19,9 @@ table
         td = user.email
         td = user.phone
         td = link_to 'Show', user
-        td = link_to 'Edit', edit_user_path(user)
+        td = link_to 'Edit', edit_polymorphic_path(user)
         td = link_to 'Destroy', user, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New User', new_user_path
+= link_to "New #{@user_class}", new_polymorphic_path(@user_class)

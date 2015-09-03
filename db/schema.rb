@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150903131852) do
+ActiveRecord::Schema.define(version: 20150903133425) do
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 20150903131852) do
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type",       limit: 10, default: "Manager"
   end
+
+  add_index "users", ["type"], name: "index_users_on_type"
 
 end

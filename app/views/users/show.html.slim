@@ -13,6 +13,6 @@ p
   strong Phone:
   = @user.phone
 
-= link_to 'Edit', edit_user_path(@user)
+= link_to 'Edit', edit_polymorphic_path(@user)
 '|
-= link_to 'Back', users_path
+= link_to 'Back', polymorphic_path(@user_class)
