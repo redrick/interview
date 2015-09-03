@@ -46,3 +46,4 @@ end
 
 # Exrcise gems
 gem 'slim', '~> 3.0.6'
+gem 'slim-rails', '~> 3.0.1'
