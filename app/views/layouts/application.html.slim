@@ -22,6 +22,11 @@ html
           li= link_to "Categories", categories_path
           li= link_to "Managers", managers_path
           li= link_to "Admins", admins_path
+          li= link_to "Login", new_user_session_path
 
     .container
+      - if notice || alert
+        p.notice = notice
+        p.alert = alert
+
       == yield
