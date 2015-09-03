@@ -13,6 +13,5 @@ p
   strong Phone:
   = @user.phone
 
-= link_to 'Edit', edit_polymorphic_path(@user)
-'|
-= link_to 'Back', polymorphic_path(@user_class)
+= link_to 'Edit', edit_polymorphic_path(@user), class:"btn btn-default"
+= link_to 'Back', polymorphic_path(@user_class), class:"btn btn-default"

@@ -1,6 +1,6 @@
-h1 Listing #{@user_class.to_s.pluralize}
+h1 #{@user_class.to_s.pluralize}
 
-table
+table.table
   thead
     tr
       th Name
@@ -24,4 +24,4 @@ table
 
 br
 
-= link_to "New #{@user_class}", new_polymorphic_path(@user_class)
+= link_to "New #{@user_class}", new_polymorphic_path(@user_class), class:"btn btn-default"

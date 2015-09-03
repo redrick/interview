@@ -5,8 +5,23 @@ html
     meta name="author" content="Martin Sojka"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     = stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track' => true
+    link[rel="stylesheet"
+         type="text/css"
+         href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"]
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
 
+
   body
-    == yield
+
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        a.navbar-brand href="#" TODOs
+        ul.nav.navbar-nav.navbar-left
+          li= link_to "Tasks", "#"
+        ul.nav.navbar-nav.navbar-right
+          li= link_to "Managers", managers_path
+          li= link_to "Admins", admins_path
+
+    .container
+      == yield
