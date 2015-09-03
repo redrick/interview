@@ -16,10 +16,9 @@ init_sortable_td_width = ->
   cells = $('.tasks').find('tr')[0].cells.length
   desired_width = table_width / cells + 'px'
   $('.tasks td').css('width', desired_width)
-  console.log(desired_width)
 
-
-$ ->
+  
+$(document).on 'ready page:load', ->
 
   if $('.tasks').length > 0
 
