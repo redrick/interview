@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:edit, :update, :destroy]
+
+  before_action :set_task, only: [:edit, :update, :toggle, :destroy]
 
   # GET /tasks
   # GET /tasks.json
@@ -46,6 +47,14 @@ class TasksController < ApplicationController
     end
   end
 
+  # PATCH/PUT /tasks/1/toggle
+  def toggle
+    respond_to do |format|
+      @task.toggle!(:done)
+      format.html { render @task }
+    end
+  end
+
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
@@ -64,6 +73,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:name, :done)
+      params.require(:task).permit(:name)
     end
 end

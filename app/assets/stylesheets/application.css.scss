@@ -15,3 +15,25 @@
 body {
   padding-top: 70px;
 }
+
+
+/* TASKS */
+
+// override default bootstrap
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+.task-name {
+  font-weight: bold;
+}
+
+.task-done {
+  >td {
+    background: #f8f8f8;
+    opacity: 0.5;
+  }
+  >.task-name {
+    text-decoration: line-through;
+  }
+}

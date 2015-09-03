@@ -1,0 +1,10 @@
+tr class="task task-#{task.id} task-#{task.done ? 'done' : 'pending'}"
+  td = button_to toggle_task_path(task), remote: true, method: :patch, class: 'btn btn-link',
+                  form: {class: 'task-toggle', data: {'task-id' => task.id}} do
+    - if task.done
+      i.fa.fa-check-square-o.fa-lg
+    - else
+      i.fa.fa-square-o.fa-lg
+  td.task-name = task.name
+  td = link_to 'Edit', edit_task_path(task)
+  td = link_to 'Destroy', task, data: {:confirm => 'Are you sure?'}, :method => :delete
