@@ -5,6 +5,7 @@ class Task < ActiveRecord::Base
 
   # Scopes
   default_scope { rank(:order) }
+  scope :undone, -> { where(done: false) }
 
   # Associations
   belongs_to :category
