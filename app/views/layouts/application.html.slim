@@ -17,7 +17,7 @@ html
     .navbar.navbar-default.navbar-fixed-top
       .container
         a.navbar-brand href="/" TODOs
-        p.navbar-text = pluralize @undone_count, 'undone todo'
+        p.navbar-text = pluralize @undone_count, 'undone task'
         ul.nav.navbar-nav.navbar-right
           li= link_to "Categories", categories_path
           li= link_to "Managers", managers_path
