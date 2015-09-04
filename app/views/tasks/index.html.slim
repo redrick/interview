@@ -1,0 +1,10 @@
+h1 Tasks
+
+table.table.tasks
+  tbody
+    = render @tasks
+
+
+br
+
+= link_to 'New Task', new_task_path, class:"btn btn-default"

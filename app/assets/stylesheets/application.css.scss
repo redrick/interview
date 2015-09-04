@@ -8,6 +8,45 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree .
  */
+
+@import "bootstrap";
+
+body {
+  padding-top: 70px;
+}
+
+.table-actions {
+  width: 100px;
+  text-align: right;
+  i {
+    margin: 0 10px;
+  }
+}
+
+
+/* TASKS */
+
+// override default bootstrap
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+.task-done {
+  width: 30px;
+}
+
+.task-name {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.task-done {
+  >td {
+    background: #f8f8f8;
+    opacity: 0.5;
+  }
+  .task-name {
+    text-decoration: line-through;
+  }
+}

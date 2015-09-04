@@ -1,0 +1,18 @@
+tr class="task task-#{task.id} task-#{task.done ? 'done' : 'pending'}" data-id="#{task.id}"
+  td.task-done = button_to toggle_task_path(task), remote: true, method: :patch, class: 'btn btn-link',
+                  form: {class: 'task-toggle', data: {'task-id' => task.id}} do
+    - if task.done
+      i.fa.fa-check-square-o.fa-lg
+    - else
+      i.fa.fa-square-o.fa-lg
+  td.task-name-category
+    span.task-name = task.name
+    span.label.label-default = task.category.try(:name)
+    - if task.attachment
+      = link_to download_attachment_task_path(task), target: '_blank' do
+        i.fa.fa-file-o.fa-lg
+  td.table-actions
+    = link_to edit_task_path(task) do
+      = edit_icon
+    = link_to task, data: {:confirm => 'Are you sure?'}, :method => :delete do
+      = delete_icon

@@ -1,0 +1,8 @@
+- File attachment feature is just a mockup - very basic. Functionality should be extracted to a separate model with proper encapsulation, validation handling and more robust features. Also it is currently not possible to replace or remove attachment on edit screen.
+- Devise is just integrated. For a full implementation of registration, login etc. I'd need a full spec. Right now it only shows clickable Login link without any further functionality. But it is - at least - integrated into a User model in it's basic form.
+- Categories task asked for "allow to choose category for task and display it in TODO list". To continue developing this feature I'd suggest scoping the tasks by categories directly on the Tasks page. Maybe use a separate categories pane (filter) on the sidebar for easy category access. This could also simplify Task creation in a specific scoped category.
+- There are more features that could be streamlined by dynamic Javascript, especially the adding/editing of tasks and categories.
+- I'd consider using React JS due it's focus on communicating mutable states among various components making it a great fit for Rails apps.
+- User and roles have to be specified in a greater detail. Right now it lacks any access control rules and management.
+- Consider connecting User accounts with Facebook and Twitter once Devise is fully integrated.
+- API should be added in the future.

@@ -1,0 +1,6 @@
+For testing I'd use RSpec together with FactoryGirl and Capybara as a start.
+
+If I had final screen mock-ups I'd start with integration tests
+to simulate user interactions. Controller and unit tests
+would be added as needed to cover all aspects (validations, business logic etc.)
+of the growing application.

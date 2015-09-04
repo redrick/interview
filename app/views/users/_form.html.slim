@@ -1,0 +1,18 @@
+= form_for @user do |f|
+
+  = render 'shared/errors', object: f.object
+  
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :surname
+    = f.text_field :surname, class: 'form-control'
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: 'form-control'
+  .form-group
+    = f.label :phone
+    = f.text_field :phone, class: 'form-control'
+  .actions
+    = f.submit nil, class:"btn btn-success"

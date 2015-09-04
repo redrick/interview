@@ -7,7 +7,7 @@ gem 'rails', '4.0.10'
 gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.2'
+gem 'sass-rails', '~> 5.0.3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -43,3 +43,11 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Exrcise gems
+gem 'slim', '~> 3.0.6'
+gem 'slim-rails', '~> 3.0.1'
+gem 'bootstrap-sass', '~> 3.3.5.1'
+gem 'ranked-model', '~> 0.4.0'
+gem 'jquery-ui-rails', '~> 5.0.5'
+gem 'devise', '~> 3.5.2'

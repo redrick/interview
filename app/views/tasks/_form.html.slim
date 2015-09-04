@@ -1,0 +1,15 @@
+= form_for @task do |f|
+
+  = render 'shared/errors', object: f.object
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :category
+    = f.select :category_id, Category.all.collect { |c| [ c.name, c.id ] }, {include_blank: true}, class: 'form-control'
+  .form-group
+    = f.label :attachment
+    = f.file_field :attachment
+
+  = f.submit nil, class:"btn btn-success"

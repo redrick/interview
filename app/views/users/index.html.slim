@@ -1,0 +1,24 @@
+h1 #{@user_class.to_s.pluralize}
+
+table.table
+  tbody
+    - @users.each do |user|
+      tr
+        td = [user.name, user.surname].join(' ')
+        td
+          i.fa.fa-envelope-o.fa-lg
+          |&nbsp;
+          = user.email
+        td
+          i.fa.fa-phone.fa-lg
+          |&nbsp;
+          = user.phone
+        td.table-actions
+          = link_to edit_polymorphic_path(user) do
+            = edit_icon
+          = link_to user, data: {:confirm => 'Are you sure?'}, :method => :delete do
+            = delete_icon
+
+br
+
+= link_to "New #{@user_class}", new_polymorphic_path(@user_class), class:"btn btn-default"
