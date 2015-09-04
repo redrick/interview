@@ -10,6 +10,7 @@ Interview::Application.routes.draw do
     member do
       patch :toggle
       patch :reorder
+      get :download_attachment
     end
   end
 

@@ -8,6 +8,9 @@ tr class="task task-#{task.id} task-#{task.done ? 'done' : 'pending'}" data-id="
   td.task-name-category
     span.task-name = task.name
     span.label.label-default = task.category.try(:name)
+    - if task.attachment
+      = link_to download_attachment_task_path(task), target: '_blank' do
+        i.fa.fa-file-o.fa-lg
   td.table-actions
     = link_to edit_task_path(task) do
       = edit_icon
