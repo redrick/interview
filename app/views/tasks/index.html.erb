@@ -1,0 +1,17 @@
+
+<h1>Tasks</h1>
+
+<%= link_to 'Create task', new_task_path, class: 'btn btn-primary' %>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Completed</th>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+    <%= render @tasks %>
+  </tbody>
+</table>
