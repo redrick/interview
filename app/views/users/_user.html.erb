@@ -1,0 +1,12 @@
+
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.surname %></td>
+  <td><%= user.type %></td>
+  <td><%= user.email %></td>
+  <td><%= user.phone %></td>
+  <td>
+    <%= link_to 'edit', edit_user_path(user) %> |
+    <%= link_to 'delete', user_path(user), method: :delete, data: {confirm: "Are you sure to delete #{user.name} #{user.surname}?"} %>
+  </td>
+</tr>
