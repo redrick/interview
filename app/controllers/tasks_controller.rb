@@ -33,6 +33,12 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
 
     if @task.update(task_params)
+
+      if params[:remove_attachment] == '1'
+        @task.remove_attachment!
+        @task.save!
+      end
+
       flash[:success] = "Task successfully updated."
       redirect_to tasks_path
     else
@@ -65,7 +71,8 @@ class TasksController < ApplicationController
         :name,
         :description,
         :completed,
-        :position
+        :position,
+        :attachment
     )
   end
 end

@@ -8,6 +8,21 @@
   <%= f.text_area :description, class: "form-control", width: 600, height: 400 %>
 </div>
 
+<% if @task.new_record? || !@task.attachment.file %>
+    <div class="form-group">
+      <%= f.label :attachment, 'Attachment' %>
+      <%= f.file_field :attachment, class: "form-control" %>
+      <%= f.hidden_field :attachment_cache %>
+    </div>
+<% else %>
+    <p>
+      Attachment: <%= @task.attachment_identifier %> |
+      <%= check_box_tag :remove_attachment %> Remove on save
+    </p>
+<% end %>
+
+<hr/>
+
 <div class="form-group">
   <%= f.check_box :completed %>
   <%= f.label :completed, 'Completed' %>

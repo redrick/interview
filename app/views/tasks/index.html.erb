@@ -3,15 +3,20 @@
 
 <%= link_to 'Create task', new_task_path, class: 'btn btn-primary' %>
 
-<table class="table">
-  <thead>
-  <tr>
-    <th>Completed</th>
-    <th>Name</th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-    <%= render @tasks %>
-  </tbody>
-</table>
+<% if @tasks.any? %>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Completed</th>
+        <th>Name</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+        <%= render @tasks %>
+      </tbody>
+    </table>
+<% else %>
+    <hr/>
+    <p>No tasks here.</p>
+<% end %>
