@@ -8,5 +8,7 @@ class CreateTasks < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :tasks, [:position]
   end
 end

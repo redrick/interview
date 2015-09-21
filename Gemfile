@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'hirb'
 gem 'carrierwave'
+gem 'activerecord-sortable'
+gem 'jquery-ui-rails'
 
 
 group :doc do

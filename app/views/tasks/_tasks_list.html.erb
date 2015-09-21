@@ -1,0 +1,29 @@
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Completed</th>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody id="tasks" data-role="activerecord_sortable">
+      <% tasks_list.each do |task| %>
+          <tr id="task-row-<%= task.id %>" data-role="task<%= task.id %>" data-move-url="<%= move_task_url(task) %>" data-position="<%= task.position %>">
+            <td>
+              <%= link_to switch_task_path(task), remote: true do %>
+                  <span class="complete-task-btn glyphicon glyphicon-<%= task.completed? ? 'ok' : 'unchecked' %>"></span>
+              <% end %>
+            </td>
+            <td><%= link_to task.name, task_path(task) %></td>
+            <td>
+              <%= link_to 'edit', edit_task_path(task) %> |
+              <%= link_to 'delete', task_path(task), method: :delete, data: {confirm: "Are you sure to delete this task?"} %>
+            </td>
+          </tr>
+      <% end %>
+
+  </tbody>
+</table>
+
+

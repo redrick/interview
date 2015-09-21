@@ -2,7 +2,7 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.all
+    @tasks = Task.ordered_by_position_asc
   end
 
   def show
@@ -15,7 +15,6 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.position = Task.count + 1
 
     if @task.save
       flash[:success] = "Task successfully created."
@@ -59,8 +58,16 @@ class TasksController < ApplicationController
 
 
   def switch
-    @task = Task.find(params[:id])
-    @task.update(completed: !@task.completed)
+    task = Task.find(params[:id])
+    task.update(completed: !task.completed)
+    @tasks = Task.ordered_by_position_asc
+  end
+
+
+  def move
+    task = Task.find(params[:id])
+    task.move_to! params[:position]
+    @tasks = Task.ordered_by_position_asc
   end
 
 

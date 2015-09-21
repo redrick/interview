@@ -1,10 +1,13 @@
 Interview::Application.routes.draw do
 
-  root to: 'users#index'
+  root to: 'tasks#index'
   resources :users, except: [:show]
 
   resources :tasks do
     get '/switch', to: 'tasks#switch', on: :member
+    member do
+      post :move
+    end
   end
 
 
