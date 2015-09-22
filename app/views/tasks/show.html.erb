@@ -4,6 +4,9 @@
 <h3>Description</h3>
 <p><%= @task.description.length > 0 ? @task.description : '---' %></p>
 
+<h3>Category</h3>
+<p><%= @task.category ? @task.category.name : 'None' %></p>
+
 <h3>Attachment</h3>
 <% if @task.attachment.file %>
     <p>

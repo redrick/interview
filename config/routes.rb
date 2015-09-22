@@ -1,5 +1,11 @@
 Interview::Application.routes.draw do
 
+  get "categories/index"
+  get "categories/new"
+  get "categories/create"
+  get "categories/edit"
+  get "categories/update"
+  get "categories/destroy"
   root to: 'tasks#index'
   resources :users, except: [:show]
 
@@ -9,6 +15,8 @@ Interview::Application.routes.draw do
       post :move
     end
   end
+
+  resources :categories, except: [:show]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

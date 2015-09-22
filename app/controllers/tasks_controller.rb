@@ -79,7 +79,8 @@ class TasksController < ApplicationController
         :description,
         :completed,
         :position,
-        :attachment
+        :attachment,
+        :category_id
     )
   end
 end

@@ -4,6 +4,7 @@
   <tr>
     <th>Completed</th>
     <th>Name</th>
+    <th>Category</th>
     <th></th>
   </tr>
   </thead>
@@ -16,6 +17,7 @@
               <% end %>
             </td>
             <td><%= link_to task.name, task_path(task) %></td>
+            <td><%= task.category ? task.category.name : '(None)' %></td>
             <td>
               <%= link_to 'edit', edit_task_path(task) %> |
               <%= link_to 'delete', task_path(task), method: :delete, data: {confirm: "Are you sure to delete this task?"} %>
