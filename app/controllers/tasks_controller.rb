@@ -61,6 +61,7 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     task.update(completed: !task.completed)
     @tasks = Task.ordered_by_position_asc
+    @undone_tasks_count = Task.undone.count
   end
 
 
