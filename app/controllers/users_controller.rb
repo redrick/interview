@@ -1,23 +1,12 @@
 
 class UsersController < ApplicationController
 
+  before_action :authenticate_user!
+  before_action :verify_admin, only: [:destroy]
+  before_action :verify_not_self, only: [:destroy]
+
   def index
     @users = User.all
-  end
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      flash[:success] = "User successfully created."
-      redirect_to users_path
-    else
-      render :new
-    end
   end
 
   def edit
@@ -36,8 +25,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id])
-    if user.destroy
+
+    # @user loaded in before filter
+
+    if @user.destroy
       flash[:success] = "User successfully deleted."
     else
       flash[:danger] = "Error occurred, user has not been deleted."
@@ -65,6 +56,23 @@ class UsersController < ApplicationController
                              :phone,
                              :type
     )
+  end
+
+
+  def verify_admin
+    @user = User.find(params[:id])
+
+    unless current_user.type == 'Admin'
+      redirect_to root_url, flash: { danger: 'Not permitted, sorry.' }
+    end
+  end
+
+
+  def verify_not_self
+    @user = User.find(params[:id])
+    if @user == current_user
+      redirect_to users_path, flash: { danger: 'Use Change Password option to destroy your account.' }
+    end
   end
 
 end

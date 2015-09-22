@@ -1,7 +1,9 @@
 
 <h1>Categories</h1>
 
-<%= link_to 'Create category', new_category_path, class: 'btn btn-primary' %>
+<% if user_signed_in? %>
+    <%= link_to 'Create category', new_category_path, class: 'btn btn-primary' %>
+<% end %>
 
 <% if @categories.any? %>
     <table class="table">
@@ -17,5 +19,10 @@
     </table>
 <% else %>
     <hr/>
-    <p>No categories. <%= link_to 'Create', new_category_path %> one.</p>
+    <p>
+      No categories.
+      <% if user_signed_in? %>
+        <%= link_to 'Create', new_category_path %> one.
+      <% end %>
+    </p>
 <% end %>

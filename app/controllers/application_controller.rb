@@ -4,9 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :update_undone_tasks_info
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
+
+  protected
 
   def update_undone_tasks_info
     @undone_tasks_count = Task.undone.count
+  end
+
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :name
+    devise_parameter_sanitizer.for(:sign_up) << :surname
+    devise_parameter_sanitizer.for(:sign_up) << :type
   end
 end

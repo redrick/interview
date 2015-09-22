@@ -2,7 +2,9 @@
 <tr>
   <td><%= category.name %></td>
   <td>
-    <%= link_to 'edit', edit_category_path(category) %> |
-    <%= link_to 'delete', category_path(category), method: :delete, data: {confirm: "Are you sure to delete category #{category.name}?"} %>
+    <% if user_signed_in? %>
+        <%= link_to 'edit', edit_category_path(category) %> |
+        <%= link_to 'delete', category_path(category), method: :delete, data: {confirm: "Are you sure to delete category #{category.name}?"} %>
+    <% end %>
   </td>
 </tr>

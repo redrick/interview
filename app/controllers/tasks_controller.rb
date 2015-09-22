@@ -1,6 +1,8 @@
 
 class TasksController < ApplicationController
 
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @tasks = Task.ordered_by_position_asc
   end

@@ -1,13 +1,9 @@
 Interview::Application.routes.draw do
 
-  get "categories/index"
-  get "categories/new"
-  get "categories/create"
-  get "categories/edit"
-  get "categories/update"
-  get "categories/destroy"
+  devise_for :users
+
   root to: 'tasks#index'
-  resources :users, except: [:show]
+  resources :users, except: [:show, :new, :create]
 
   resources :tasks do
     get '/switch', to: 'tasks#switch', on: :member

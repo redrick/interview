@@ -32,6 +32,7 @@ gem 'hirb'
 gem 'carrierwave'
 gem 'activerecord-sortable'
 gem 'jquery-ui-rails'
+gem 'devise'
 
 
 group :doc do

@@ -1,16 +1,14 @@
+
+<%= render partial: 'shared/form_errors', locals: { record: @user } %>
+
 <div class="form-group">
   <%= f.label :name, 'Name' %>
-  <%= f.text_field :name, class: "form-control" %>
+  <%= f.text_field :name, autofocus: true, class: "form-control" %>
 </div>
 
 <div class="form-group">
   <%= f.label :surname, 'Surname' %>
   <%= f.text_field :surname, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= f.label :email, 'Email' %>
-  <%= f.email_field :email, class: "form-control" %>
 </div>
 
 <div class="form-group">
