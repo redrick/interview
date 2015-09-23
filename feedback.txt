@@ -1,0 +1,4 @@
+
+Each user should create his own tasks and categories, not every user to see all of them. Authorization would be
+fine to restrict unathorized changes, e. g. only admins can change other users' data. Pundit gem is a good way
+to accomplish this. Design changes, any interesting bootstrap template to be used.
