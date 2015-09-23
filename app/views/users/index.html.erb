@@ -1,0 +1,23 @@
+
+<h1>Users</h1>
+
+<% if @users.any? %>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Type</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'user', collection: @users %>
+      </tbody>
+    </table>
+<% else %>
+    <hr/>
+    <p>No users.</p>
+<% end %>

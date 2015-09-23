@@ -1,0 +1,16 @@
+
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.surname %></td>
+  <td><%= user.type %></td>
+  <td><%= user.email %></td>
+  <td><%= user.phone %></td>
+  <td>
+    <% if user_signed_in? %>
+        <%= link_to 'edit', edit_user_path(user) %>
+        <% if current_user.type == 'Admin' && current_user != user %>
+            | <%= link_to 'delete', user_path(user), method: :delete, data: {confirm: "Are you sure to delete #{user.name} #{user.surname}?"} %>
+        <% end %>
+    <% end %>
+  </td>
+</tr>

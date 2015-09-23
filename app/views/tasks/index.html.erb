@@ -1,0 +1,22 @@
+
+<h1>Tasks</h1>
+
+<% if user_signed_in? %>
+    <%= link_to 'Create task', new_task_path, class: 'btn btn-primary' %>
+<% end %>
+
+<% if @tasks.any? %>
+    <div id="tasks-list">
+        <%= render partial: 'tasks_list', object: @tasks %>
+    </div>
+<% else %>
+    <hr/>
+    <p>
+      No tasks here.
+      <% if user_signed_in? %>
+        <%= link_to 'Create', new_task_path %> one.
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'register', new_user_registration_path %> to create new tasks.
+      <% end %>
+    </p>
+<% end %>

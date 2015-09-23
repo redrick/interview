@@ -8,7 +8,15 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+    <%= render partial: 'shared/navbar' %>
+    <%= render partial: 'shared/flash_messages' %>
+    <%= yield %>
+    <hr/>
+    <div id="undone-tasks-info">
+      <%= render partial: 'shared/undone_tasks_info' %>
+    </div>
+</div>
 
 </body>
 </html>

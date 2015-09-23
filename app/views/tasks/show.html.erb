@@ -1,0 +1,31 @@
+
+<h1><%= @task.name %></h1>
+
+<h3>Description</h3>
+<p><%= @task.description.length > 0 ? @task.description : '---' %></p>
+
+<h3>Category</h3>
+<p><%= @task.category ? @task.category.name : 'None' %></p>
+
+<h3>Attachment</h3>
+<% if @task.attachment.file %>
+    <p>
+      <%= @task.attachment_identifier %> |
+      <%= link_to 'Download', @task.attachment.url, target: '_blank' %>
+    </p>
+<% else %>
+    <p>
+      No attachment.
+      <% if user_signed_in? %>
+        You can upload one using <%= link_to 'Edit', edit_task_path(@task) %>.
+      <% end %>
+    </p>
+<% end %>
+
+<hr/>
+
+<p>This task is <%= @task.completed? ? 'completed' : 'not completed' %>.</p>
+<%= link_to 'Back', tasks_path, class: 'btn btn-default' %>
+<% if user_signed_in? %>
+    <%= link_to 'Edit', edit_task_path(@task), class: 'btn btn-primary' %>
+<% end %>

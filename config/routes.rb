@@ -1,4 +1,20 @@
 Interview::Application.routes.draw do
+
+  devise_for :users
+
+  root to: 'tasks#index'
+  resources :users, except: [:show, :new, :create]
+
+  resources :tasks do
+    get '/switch', to: 'tasks#switch', on: :member
+    member do
+      post :move
+    end
+  end
+
+  resources :categories, except: [:show]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

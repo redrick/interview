@@ -1,0 +1,41 @@
+
+<%= render partial: 'shared/form_errors', locals: { record: @task } %>
+
+<div class="form-group">
+  <%= f.label :name, 'Name' %>
+  <%= f.text_field :name, autofocus: true, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :description, 'Description' %>
+  <%= f.text_area :description, class: "form-control", width: 600, height: 400 %>
+</div>
+
+<div class="form-group">
+  <%= f.label :description, 'Category' %>
+  <%= f.select :category_id, options_from_collection_for_select(Category.all, 'id', 'name', @task.category_id), include_blank: true, class: "form-control" %>
+</div>
+
+
+<% if @task.new_record? || !@task.attachment.file %>
+    <div class="form-group">
+      <%= f.label :attachment, 'Attachment' %>
+      <%= f.file_field :attachment, class: "form-control" %>
+      <%= f.hidden_field :attachment_cache %>
+    </div>
+<% else %>
+    <p>
+      Attachment: <%= @task.attachment_identifier %> |
+      <%= check_box_tag :remove_attachment %> Remove on save
+    </p>
+<% end %>
+
+<hr/>
+
+<div class="form-group">
+  <%= f.check_box :completed %>
+  <%= f.label :completed, 'Completed' %>
+</div>
+
+<%= f.submit 'Save', class: "btn btn-primary" %>
+<%= link_to 'Cancel', tasks_path, class: 'btn btn-default' %>

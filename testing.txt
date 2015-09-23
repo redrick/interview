@@ -1,0 +1,22 @@
+
+In the past I used RSpec and Capybara for testing, but now I would go
+for Rails built-in testing. Examples:
+
+
+To test validation, tasks must have name to be created
+
+test "not to save task without name" do
+    task = Task.new
+    assert_not task.save
+end
+
+
+To test whether a category has been created by post request and user redirected to categories#index
+
+test "to create category" do
+  assert_difference('Category.count') do
+    post :create, category: {name: 'Important'}
+  end
+
+  assert_redirected_to categories_path
+end

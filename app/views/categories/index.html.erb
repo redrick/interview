@@ -1,0 +1,28 @@
+
+<h1>Categories</h1>
+
+<% if user_signed_in? %>
+    <%= link_to 'Create category', new_category_path, class: 'btn btn-primary' %>
+<% end %>
+
+<% if @categories.any? %>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render partial: 'category', collection: @categories %>
+      </tbody>
+    </table>
+<% else %>
+    <hr/>
+    <p>
+      No categories.
+      <% if user_signed_in? %>
+        <%= link_to 'Create', new_category_path %> one.
+      <% end %>
+    </p>
+<% end %>

@@ -1,0 +1,10 @@
+
+<%= render partial: 'shared/form_errors', locals: { record: @category } %>
+
+<div class="form-group">
+  <%= f.label :name, 'Name' %>
+  <%= f.text_field :name, autofocus: true, class: "form-control" %>
+</div>
+
+<%= f.submit 'Save', class: "btn btn-primary" %>
+<%= link_to 'Cancel', categories_path, class: 'btn btn-default' %>
