@@ -43,3 +43,7 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Slim is a template language whose goal is reduce the syntax to the essential parts without becoming cryptic.
+# slim-rails provides Slim generators for Rails 3 and 4 (From the version 0.2.0, there is no need to include gem "slim" in your Gemfile.)
+gem 'slim-rails'
