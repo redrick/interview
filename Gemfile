@@ -53,3 +53,8 @@ gem 'hirb', require: false
 
 # bootstrap-sass is a Sass-powered version of Bootstrap, ready to drop right into your Sass powered applications.
 gem 'bootstrap-sass', '~> 3.3.5'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
