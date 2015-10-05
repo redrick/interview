@@ -50,3 +50,6 @@ gem 'slim-rails'
 
 # Hirb provides a mini view framework for console applications and uses it to improve ripl(irb)'s default inspect output
 gem 'hirb', require: false
+
+# bootstrap-sass is a Sass-powered version of Bootstrap, ready to drop right into your Sass powered applications.
+gem 'bootstrap-sass', '~> 3.3.5'
