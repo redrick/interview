@@ -47,3 +47,6 @@ end
 # Slim is a template language whose goal is reduce the syntax to the essential parts without becoming cryptic.
 # slim-rails provides Slim generators for Rails 3 and 4 (From the version 0.2.0, there is no need to include gem "slim" in your Gemfile.)
 gem 'slim-rails'
+
+# Hirb provides a mini view framework for console applications and uses it to improve ripl(irb)'s default inspect output
+gem 'hirb', require: false
