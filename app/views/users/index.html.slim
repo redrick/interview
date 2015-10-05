@@ -1,19 +1,28 @@
-table class="table table-striped"
-  thead
-    tr
-      th #
-      th First Name
-      th Last Name
-      th Email
-      th Phone
-      th Detail
-    
-  tbody
-    - @users.each do |user|
-      tr
-        th scope="row" = user.id
-        td = user.name
-        td = user.surname
-        td = user.email
-        td = user.phone
-        td = link_to 'Detail', user
+div class="action-panel"
+  div class="row"
+    div class="col-sm-12"
+      div class="btn-group pull-right"
+        =link_to 'Add new user', new_user_path, class: "btn btn-default"
+
+div class="content"
+  div class="row"
+    div class="col-sm-12"
+      table class="table table-striped"
+        thead
+          tr
+            th #
+            th First Name
+            th Last Name
+            th Email
+            th Phone
+            th Detail
+          
+        tbody
+          - @users.each do |user|
+            tr
+              th scope="row" = user.id
+              td = user.name
+              td = user.surname
+              td = user.email
+              td = user.phone
+              td = link_to 'Detail', user
