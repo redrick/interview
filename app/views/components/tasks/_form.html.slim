@@ -1,0 +1,7 @@
+= content_tag_for :li, @task do
+  = form_for [@task.user, @task], remote: true do |f|
+    div class="form-group"
+      = f.text_field :description, class: 'form-control', placeholder: 'Add new task...', autocomplete: :off
+      
+    = f.submit 'Save', class: 'btn btn-sm btn-primary'
+    = link_to 'Cancel', '#', class: 'btn btn-sm btn-default'

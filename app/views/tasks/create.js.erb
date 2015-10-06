@@ -1,0 +1,2 @@
+$('.tasks #new_task').remove();
+$('.tasks').append('<%= j render "components/tasks/task", task: @task, user: @user %>');

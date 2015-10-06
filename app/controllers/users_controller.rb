@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -18,15 +19,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to users_path, notice: 'User was successfully updated.'
     else
@@ -35,7 +33,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path, notice: 'User was successfully deletedd.'
   end
@@ -43,11 +40,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(type).permit(:name, :surname, :email, :phone, :type)
+    params.require(:user).permit(:name, :surname, :email, :phone, :type)
   end
 
-  def type
-    User.types.include?(params[:type]) ? params[:type].underscore.to_sym : :user
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end

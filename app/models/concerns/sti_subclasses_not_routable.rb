@@ -7,7 +7,12 @@ module STISubclassesNotRoutable
      def route_key
       'users'
      end
+
      def singular_route_key
+       'user'
+     end
+
+     def param_key
        'user'
      end
    end

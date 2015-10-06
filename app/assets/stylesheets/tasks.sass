@@ -1,0 +1,26 @@
+ul.tasks
+  list-style: none
+  padding: 0
+
+  li
+    border: 1px solid #f0f0f0
+    border-radius: 2px
+    padding: 7px
+    margin-bottom: 5px
+    background: #f9f9f9
+  &.completed
+    .task-name
+      text-decoration: line-through
+
+.task
+  .links
+    display: none
+  .date
+    display: inline
+    text-color: gray
+    font-size: 12px
+  &:hover
+    .links
+      display: inline
+    .date
+      display: none

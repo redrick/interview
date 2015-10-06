@@ -1,0 +1,12 @@
+div class="action-panel"
+  div class="row"
+    div class="col-sm-12"
+      div class="btn-group pull-right"
+        =link_to 'Add new task', new_user_task_path(user_id: current_user), remote: true, class: 'btn btn-default'
+
+div class="content"
+  div class="row"
+    div class="col-sm-12"
+      ul class="tasks"
+        - @tasks.each do |task|
+          = ui_component 'tasks/task', task: task, user: @user
