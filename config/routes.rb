@@ -1,7 +1,7 @@
 Interview::Application.routes.draw do
 
-  resources :users do
-    resources :tasks do
+  resources :users, except: :show do
+    resources :tasks, except: :show do
       member do
         patch :toggle
         get :download_attachment

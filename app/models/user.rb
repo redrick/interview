@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
     %w(Admin Manager)
   end
 
+  def full_name
+    "#{name} #{surname}"
+  end
+
 end

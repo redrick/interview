@@ -7,22 +7,14 @@ div class="action-panel"
 div class="content"
   div class="row"
     div class="col-sm-12"
-      table class="table table-striped"
-        thead
-          tr
-            th #
-            th First Name
-            th Last Name
-            th Email
-            th Phone
-            th Detail
-          
+      table class="users table table-striped table-hover"
         tbody
           - @users.each do |user|
-            tr
-              th scope="row" = user.id
-              td = user.name
-              td = user.surname
-              td = user.email
-              td = user.phone
-              td = link_to 'Detail', user
+            tr class="user"
+              td class="col-sm-8" = user.full_name
+              td class="col-sm-2" = link_to 'Show tasks', user_tasks_path(user)
+              td class="col-sm-2"
+                span class="links"
+                  = link_to 'Edit', edit_user_path(user)
+                  |&nbsp/&nbsp
+                  = link_to 'Delete', @user, confirm: 'Are you sure?', method: :delete
