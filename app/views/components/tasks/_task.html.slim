@@ -1,16 +1,27 @@
 = content_tag_for :li, task do
-  input type="checkbox" checked=task.completed? data-url=toggle_user_task_path(user, task) data-remote="true" data-method="patch"
-  |&nbsp
-  span class="task-name" 
-    = task.description
   
-  span class="date pull-right"
-    = task.created_at.strftime('%d.%m.%Y')
-    - if task.completed?
-      |&nbsp/&nbsp
-      = task.completed_at.strftime('%d.%m.%Y')
+  div class="row"
+    div class="col-sm-12"
   
-  span class="links pull-right"
-    = link_to 'Edit', edit_user_task_path(user, task), remote: true
-    |&nbsp/&nbsp
-    = link_to 'Delete', user_task_path(user, task), method: :delete, remote: true, data: { confirm: 'Are you sure?' }
+      input type="checkbox" checked=task.completed? data-url=toggle_user_task_path(user, task) data-remote="true" data-method="patch"
+      |&nbsp
+      span class="task-name" 
+        = task.description
+      
+      span class="date pull-right"
+        = task.created_at.strftime('%d.%m.%Y')
+        - if task.completed?
+          |&nbsp/&nbsp
+          = task.completed_at.strftime('%d.%m.%Y')
+      
+      span class="links pull-right"
+        = link_to 'Edit', edit_user_task_path(user, task), remote: true
+        |&nbsp/&nbsp
+        = link_to 'Delete', user_task_path(user, task), method: :delete, remote: true, data: { confirm: 'Are you sure?' }
+  
+  - if task.attachment.present?
+    div class="row"
+      div class="col-sm-12"
+        =link_to task.attachment_file_name, download_attachment_user_task_path(user, task)
+        |&nbsp
+        =link_to 'x', destroy_attachment_user_task_path(user, task), method: :patch, remote: true, data: { confirm: 'Are you sure?' }

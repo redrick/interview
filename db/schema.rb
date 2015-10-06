@@ -11,15 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005150816) do
+ActiveRecord::Schema.define(version: 20151006164804) do
 
   create_table "tasks", force: true do |t|
-    t.integer  "user_id",      null: false
-    t.text     "description",  null: false
-    t.integer  "order",        null: false
+    t.integer  "user_id",                 null: false
+    t.text     "description",             null: false
+    t.integer  "order",                   null: false
     t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   add_index "tasks", ["user_id", "completed_at"], name: "index_tasks_on_user_id_and_completed_at"

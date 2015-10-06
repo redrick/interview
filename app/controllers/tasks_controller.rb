@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_user
-  before_action :set_task, only: [:edit, :update, :toggle, :destroy]
+  before_action :set_task, only: [:edit, :update, :toggle, :destroy, :download_attachment, :destroy_attachment]
 
   def index
     @tasks = @user.tasks
@@ -13,6 +13,10 @@ class TasksController < ApplicationController
   def create
     @task = @user.tasks.new(task_params)
     @task.save
+    respond_to do |format|
+     format.html { redirect_to user_tasks_path(@user) }
+     format.js
+   end
   end
 
   def edit
@@ -20,6 +24,14 @@ class TasksController < ApplicationController
 
   def update
     @task.update(task_params)
+    respond_to do |format|
+     format.html { redirect_to user_tasks_path(@user) }
+     format.js
+   end
+  end
+
+  def destroy
+    @task.destroy
   end
 
   def toggle
@@ -29,14 +41,22 @@ class TasksController < ApplicationController
   def sort
   end
 
-  def destroy
-    @task.destroy
+  def download_attachment
+    attachment = @task.attachment
+    if attachment
+      attachment = File.open(attachment.path, 'r')
+      send_file attachment
+    end
+  end
+
+  def destroy_attachment
+    @task.destroy_attachment
   end
 
   private
 
   def task_params
-     params.require(:task).permit(:description)
+     params.require(:task).permit(:description, :attachment)
   end
 
   def set_user

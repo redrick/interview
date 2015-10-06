@@ -59,3 +59,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'byebug'
 end
+
+# Paperclip is intended as an easy file attachment library for ActiveRecord.
+gem "paperclip", "~> 4.3"
