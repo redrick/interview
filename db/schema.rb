@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20151006164804) do
   create_table "tasks", force: true do |t|
     t.integer  "user_id",                 null: false
     t.text     "description",             null: false
-    t.integer  "order",                   null: false
+    t.integer  "order"
     t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"

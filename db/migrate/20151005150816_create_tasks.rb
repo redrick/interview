@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.belongs_to  :user,          null: false
       t.text        :description,   null: false
-      t.integer     :order,         null: false
+      t.integer     :order
       t.timestamp   :completed_at
 
       t.timestamps

@@ -39,6 +39,11 @@ class TasksController < ApplicationController
   end
 
   def sort
+    params[:order].each do |key, updated_order|
+      task = @user.tasks.where(id: updated_order[:id]).first
+      task.update_attribute(:order, updated_order[:position]) if task
+    end
+    render nothing: true
   end
 
   def download_attachment

@@ -7,6 +7,9 @@ Interview::Application.routes.draw do
         get :download_attachment
         patch :destroy_attachment
       end
+      collection do
+        patch :sort
+      end
     end
   end
 
