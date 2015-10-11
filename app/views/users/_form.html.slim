@@ -1,7 +1,6 @@
 - submit_label = user.new_record? ? 'Create user' : 'Update user'
 
 = form_for user, html: { class: 'form-horizontal' } do |f|
-
   = form_component :email_field,  form: f, field: :email
   = form_component :text_field,   form: f, field: :name
   = form_component :text_field,   form: f, field: :surname

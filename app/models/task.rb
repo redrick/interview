@@ -14,6 +14,8 @@ class Task < ActiveRecord::Base
   has_attached_file :attachment
   do_not_validate_attachment_file_type :attachment
 
+  validates :description, presence: true
+
   def completed?
     !!completed_at
   end

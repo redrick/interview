@@ -7,11 +7,9 @@ nav class="navbar navbar-inverse navbar-fixed-top"
         span class="icon-bar"
         span class="icon-bar"
         span class="icon-bar"
-      = link_to 'Best TODO list ever', user_tasks_path(user_id: current_user), class: 'navbar-brand'
+      = link_to 'Best TODO list ever', root_path, class: 'navbar-brand'
     
     div id="navbar" class="collapse navbar-collapse"
       ul class="nav navbar-nav"
-        li
-          = link_to 'Tasks', user_tasks_path(user_id: current_user)
         li
           = link_to 'Users', users_path

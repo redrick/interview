@@ -13,7 +13,6 @@ class TasksController < ApplicationController
   def create
     @task = @user.tasks.new(task_params)
     @task.save
-    debugger
     respond_to do |format|
      format.html { redirect_to user_tasks_path(@user) }
      format.js

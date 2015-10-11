@@ -1,2 +1,6 @@
 $('.tasks #new_task').remove();
-$('.tasks').append('<%= j render "components/tasks/task", task: @task, user: @user %>');
+<% if @task.valid? %>
+  $('.tasks').append('<%= j render "components/tasks/task", task: @task, user: @user %>');
+<% else %>
+  $('.tasks').append('<%= j render "components/tasks/form", task: @task, user: @user %>');
+<% end %>
