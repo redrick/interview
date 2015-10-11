@@ -1,9 +1,17 @@
 class TasksController < ApplicationController
   before_action :set_user
   before_action :set_task, only: [:edit, :update, :toggle, :destroy, :download_attachment, :destroy_attachment]
+  before_action :count_active
 
   def index
-    @tasks = @user.tasks
+    @tasks = case params[:scope]
+    when 'active'
+      @user.tasks.active
+    when 'completed'
+      @user.tasks.completed
+    else
+      @user.tasks
+    end
   end
 
   def new
@@ -70,6 +78,10 @@ class TasksController < ApplicationController
 
   def set_task
     @task = @user.tasks.where(id: params[:id]).first
+  end
+
+  def count_active
+    @active_count = @user.tasks.active.count
   end
 
 end

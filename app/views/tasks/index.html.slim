@@ -1,6 +1,11 @@
 div class="action-panel"
   div class="row"
-    div class="col-sm-12"
+    div class="col-sm-6"
+      div class="btn-group"
+        =link_to 'All', user_tasks_path(@user), class: 'btn btn-default'
+        =link_to 'Completed', user_tasks_path(@user, scope: :completed), class: 'btn btn-default'
+        =link_to "Active (#{@active_count})", user_tasks_path(@user, scope: :active), class: 'btn btn-default'
+    div class="col-sm-6"
       div class="btn-group pull-right"
         =link_to 'Add new task', new_user_task_path(@user), remote: true, class: 'btn btn-default'
 
