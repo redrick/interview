@@ -12,8 +12,9 @@ class User < ActiveRecord::Base
 
   has_many :tasks, dependent: :destroy
 
-  validates :name,         presence: true
-  validates :surname,      presence: true
+  # Do not validate so default signup works
+  # validates :name,         presence: true
+  # validates :surname,      presence: true
   validates :email,        presence: true, format: { with: EMAIL_FORMAT }
   validates :phone,                        format: { with: PHONE_FORMAT }, allow_blank: true
 
