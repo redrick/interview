@@ -63,4 +63,8 @@ end
 # Paperclip is intended as an easy file attachment library for ActiveRecord.
 gem 'paperclip', '~> 4.3'
 
+# Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
+
+# Turbo-charged counter caches for your Rails app. Huge improvements over the Rails standard counter caches:
+gem 'counter_culture', '~> 0.1.33'

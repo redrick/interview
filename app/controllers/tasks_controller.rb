@@ -1,7 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_user
   before_action :set_task, only: [:edit, :update, :toggle, :destroy, :download_attachment, :destroy_attachment]
-  before_action :count_active, except: [:create, :destroy, :toggle]
   before_action :authenticate_user!
 
   def index
@@ -25,7 +24,6 @@ class TasksController < ApplicationController
     @task_form = TaskForm.new(task: @task)
     @task_form.assign_params(task_params)
     @task_form.save
-    count_active
     respond_to do |format|
      format.html { redirect_to user_tasks_path(@user) }
      format.js
@@ -48,12 +46,10 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    count_active
   end
 
   def toggle
     @task.toggle_completed_at
-    count_active
   end
 
   def sort
@@ -88,10 +84,6 @@ class TasksController < ApplicationController
 
   def set_task
     @task = @user.tasks.where(id: params[:id]).first
-  end
-
-  def count_active
-    @active_count = @user.tasks.active.count
   end
 
 end
