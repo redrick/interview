@@ -7,6 +7,9 @@ class Task < ActiveRecord::Base
 
   belongs_to :user
 
+  has_many :categories_tasks
+  has_many :categories, through: :categories_tasks
+
   has_attached_file :attachment
   do_not_validate_attachment_file_type :attachment
 

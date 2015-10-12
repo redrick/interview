@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012093324) do
+ActiveRecord::Schema.define(version: 20151012113944) do
+
+  create_table "categories", force: true do |t|
+    t.string "name"
+  end
+
+  create_table "categories_tasks", force: true do |t|
+    t.integer "task_id"
+    t.integer "category_id"
+  end
 
   create_table "tasks", force: true do |t|
     t.integer  "user_id",                 null: false
