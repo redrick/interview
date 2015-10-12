@@ -12,7 +12,7 @@
       = f.file_field :attachment, class: 'form-control'
       
     div class="form-group"
-      = f.text_field :all_categories, class: 'form-control'
+      = f.text_field :all_categories, class: 'form-control', placeholder: "categories split with ',' e.g. 'work, important'"
     
     div class="form-group"
       = f.submit 'Save', class: 'btn btn-sm btn-primary'
