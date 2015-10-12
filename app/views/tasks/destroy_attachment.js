@@ -1,1 +1,1 @@
-$('.tasks #<%= dom_id @task %>').replaceWith('<%= j render "components/tasks/task", task: @task, user: @user %>');
+$('.tasks #<%= dom_id @task %>').replaceWith('<%= j ui_component "tasks/task", task: @task, user: @user %>');

@@ -1,3 +1,4 @@
+
 Interview::Application.routes.draw do
 
   resources :users, except: :show do
@@ -11,7 +12,10 @@ Interview::Application.routes.draw do
         patch :sort
       end
     end
+    get 'tasks/active',     controller: :tasks, action: :index, scope: :active
+    get 'tasks/completed',  controller: :tasks, action: :index, scope: :completed
   end
+
 
   root 'users#index'
 

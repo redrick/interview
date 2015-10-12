@@ -1,13 +1,13 @@
 class TasksController < ApplicationController
   before_action :set_user
   before_action :set_task, only: [:edit, :update, :toggle, :destroy, :download_attachment, :destroy_attachment]
-  before_action :count_active
+  before_action :count_active, except: :toggle
 
   def index
     @tasks = case params[:scope]
-    when 'active'
+    when :active
       @user.tasks.active
-    when 'completed'
+    when :completed
       @user.tasks.completed
     else
       @user.tasks
@@ -44,6 +44,7 @@ class TasksController < ApplicationController
 
   def toggle
     @task.toggle_completed_at
+    count_active
   end
 
   def sort

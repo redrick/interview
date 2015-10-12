@@ -1,0 +1,4 @@
+div class="btn-group" id="filter-btn-group"
+  =link_to 'All', user_tasks_path(user), class: btn_group_class
+  =link_to 'Completed', user_tasks_completed_path(user), class: btn_group_class(:completed)
+  =link_to "Active (#{active_count})", user_tasks_active_path(user), class: btn_group_class(:active)
