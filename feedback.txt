@@ -1,0 +1,13 @@
+I tried to use components approach to build ui
+- UI is treated as dependency, can be extracted as gem.
+- Can be used across multiple application (when monolith is divided into multiple apps)
+- based on: http://engineering.lonelyplanet.com/2014/05/18/a-maintainable-styleguide.html
+
+STI felt forced in this use case, but I used it anyway.
+- I didn't want redundant routes for managers and admins.
+- So I implemented and used STISubclassesNotRoutable module to override some default rails behavior for generating routes and params keys in forms (it should be generalized)
+
+I used Many-to-Many relationship between tasks and categories.
+- logic related to handling this form became little complex(because of Many-to-Many rel.), so I extracted it into form object
+
+I didn't count undone tasks in before_filter, instead I used counter cache on users.

@@ -1,0 +1,13 @@
+I would use minitest for testing, with selenium for integration tests.
+
+unit testing
+- The most important would be to write unit tests for TaskForm class
+
+functional testing
+- test each endpoint -> both success and failures
+- check for response codes
+- check if authentication works (redirect to sign in page)
+- check content of response
+
+integration testing
+- to check basic use cases(workflows).
