@@ -9,6 +9,4 @@ div class="action-panel"
 div class="content"
   div class="row"
     div class="col-sm-12"
-      =content_tag :ul, class: "tasks sortable", data: { user_id: @user.id } 
-        - @tasks.each do |task|
-          = ui_component 'tasks/task', task: task, user: @user
+      =ui_component 'tasks/tasks', tasks: @tasks, user: @user

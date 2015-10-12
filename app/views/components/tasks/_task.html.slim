@@ -1,11 +1,11 @@
-= content_tag_for :li, task, data: { id: task.id } do
+= content_tag_for :li, task, class: ('completed' if task.completed?), data: { id: task.id } do
   
   div class="row"
     div class="col-sm-12"
   
       input type="checkbox" checked=task.completed? data-url=toggle_user_task_path(user, task) data-remote="true" data-method="patch"
       |&nbsp
-      span class="task-name" 
+      span class="task-description"
         = task.description
       
       span class="date pull-right"
