@@ -61,4 +61,6 @@ group :development do
 end
 
 # Paperclip is intended as an easy file attachment library for ActiveRecord.
-gem "paperclip", "~> 4.3"
+gem 'paperclip', '~> 4.3'
+
+gem 'devise'

@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   before_action :set_user
   before_action :set_task, only: [:edit, :update, :toggle, :destroy, :download_attachment, :destroy_attachment]
   before_action :count_active, except: :toggle
+  before_action :authenticate_user!
 
   def index
     @tasks = case params[:scope]

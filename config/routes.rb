@@ -1,6 +1,7 @@
 
 Interview::Application.routes.draw do
 
+  devise_for :users
   resources :users, except: :show do
     resources :tasks, except: :show do
       member do
@@ -15,7 +16,6 @@ Interview::Application.routes.draw do
     get 'tasks/active',     controller: :tasks, action: :index, scope: :active
     get 'tasks/completed',  controller: :tasks, action: :index, scope: :completed
   end
-
 
   root 'users#index'
 

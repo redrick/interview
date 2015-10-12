@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
   EMAIL_FORMAT = /\A\S+@.+\.\S+\z/
   PHONE_FORMAT = /(((\+|00)\d{3} ?\d{3})|(\d{4})? ?\d{3} ?\d{3})/

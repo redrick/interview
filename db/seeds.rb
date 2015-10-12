@@ -10,8 +10,10 @@ User.delete_all
 Task.delete_all
 
 users = [
-  { name: 'Lukas',  surname: 'Lazarcik',  email: 'l.l@gmail.com', phone: '0907123123', type: 'Admin' },
-  { name: 'Fero',   surname: 'Baranec',   email: 'f.b@gmail.com', phone: '0908321321', type: 'Manager' }
+  { name: 'Lukas',  surname: 'Lazarcik',  email: 'l.l@gmail.com',
+    password: 'lukaslukas', phone: '0907123123', type: 'Admin' },
+  { name: 'Fero',   surname: 'Baranec',   email: 'f.b@gmail.com',
+    password: 'lukaslukas', phone: '0908321321', type: 'Manager' }
 ]
 
 User.create!(users)
