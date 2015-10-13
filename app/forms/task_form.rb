@@ -37,6 +37,7 @@ class TaskForm
         task.save!
       end
     end
+    task
   end
 
   def self.model_name

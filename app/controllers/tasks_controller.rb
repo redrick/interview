@@ -23,7 +23,7 @@ class TasksController < ApplicationController
     @task = @user.tasks.new
     @task_form = TaskForm.new(task: @task)
     @task_form.assign_params(task_params)
-    @task_form.save
+    @task = @task_form.save
     respond_to do |format|
      format.html { redirect_to user_tasks_path(@user) }
      format.js
@@ -37,7 +37,7 @@ class TasksController < ApplicationController
   def update
     @task_form = TaskForm.new(task: @task)
     @task_form.assign_params(task_params)
-    @task_form.save
+    @task = @task_form.save
     respond_to do |format|
      format.html { redirect_to user_tasks_path(@user) }
      format.js

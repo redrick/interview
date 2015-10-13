@@ -1,0 +1,5 @@
+div id="flash" class="container"
+- flash.each do |msg_type, message|
+  = content_tag(:div, class: "alert #{bootstrap_class_for_flash(msg_type)} fade in") do
+    = message
+    = content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })
