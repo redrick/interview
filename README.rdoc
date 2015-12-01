@@ -1,4 +1,4 @@
-== Hello in Cashplay.co
+== Hello World
 
 What you are looking at is test app for everybody who wahts to work with us :) :) :)
 
