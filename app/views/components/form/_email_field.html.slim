@@ -1,0 +1,10 @@
+- label_text = field.capitalize
+- errors = errors_for(form, field)
+
+div class="form-group"
+  = label field, label_text, class: 'col-sm-2 control-label'
+  div class="col-sm-4"
+    = form.email_field field, class: 'form-control', placeholder: label_text
+    ul class="errors"
+      -errors.each do |error|
+        li =error

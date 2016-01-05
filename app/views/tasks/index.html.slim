@@ -1,0 +1,12 @@
+
+div class="action-panel"
+  div class="row"
+    div class="col-sm-6"
+      =ui_component 'tasks/filter_button_group', user: @user, active_count: @active_count
+    div class="col-sm-6"
+      =ui_component 'tasks/add_new_task', user: @user
+
+div class="content"
+  div class="row"
+    div class="col-sm-12"
+      =ui_component 'tasks/tasks', tasks: @tasks, user: @user

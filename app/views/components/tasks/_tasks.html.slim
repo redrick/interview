@@ -1,0 +1,3 @@
+=content_tag :ul, class: "tasks sortable", data: { user_id: user.id } 
+  - tasks.each do |task|
+    = ui_component 'tasks/task', task: task, user: user

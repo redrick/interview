@@ -1,0 +1,2 @@
+$('#filter-btn-group').replaceWith('<%= j ui_component "tasks/filter_button_group", user: @user, active_count: @active_count %>');
+$('.tasks #<%= dom_id @task %>').remove();

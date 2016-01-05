@@ -1,0 +1,18 @@
+= content_tag_for :li, @task do
+  = form_for [@user, @task_form], remote: true, html: { multipart: true } do |f|
+    = hidden_field_tag :authenticity_token, form_authenticity_token
+    
+    div class="form-group"
+      = f.text_field :description, class: 'form-control', placeholder: 'Add new task...', autocomplete: :off
+      ul class="errors"
+        -f.object.errors[:description].each do |error|
+          li =error
+    
+    div class="form-group"
+      = f.file_field :attachment, class: 'form-control'
+      
+    div class="form-group"
+      = f.text_field :all_categories, class: 'form-control', placeholder: "categories split with ',' e.g. 'work, important'"
+    
+    div class="form-group"
+      = f.submit 'Save', class: 'btn btn-sm btn-primary'

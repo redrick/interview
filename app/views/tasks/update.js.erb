@@ -1,0 +1,5 @@
+<% if @task.valid? %>
+  $('.tasks #<%= dom_id @task %>').replaceWith('<%= j ui_component "tasks/task", task: @task, user: @user %>');
+<% else %>
+  $('.tasks #<%= dom_id @task %>').replaceWith('<%= j ui_component "tasks/form", task: @task, user: @user %>');
+<% end %>

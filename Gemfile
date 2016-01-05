@@ -43,3 +43,28 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Slim is a template language whose goal is reduce the syntax to the essential parts without becoming cryptic.
+# slim-rails provides Slim generators for Rails 3 and 4 (From the version 0.2.0, there is no need to include gem "slim" in your Gemfile.)
+gem 'slim-rails'
+
+# Hirb provides a mini view framework for console applications and uses it to improve ripl(irb)'s default inspect output
+gem 'hirb', require: false
+
+# bootstrap-sass is a Sass-powered version of Bootstrap, ready to drop right into your Sass powered applications.
+gem 'bootstrap-sass', '~> 3.3.5'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'byebug'
+end
+
+# Paperclip is intended as an easy file attachment library for ActiveRecord.
+gem 'paperclip', '~> 4.3'
+
+# Devise is a flexible authentication solution for Rails based on Warden
+gem 'devise'
+
+# Turbo-charged counter caches for your Rails app. Huge improvements over the Rails standard counter caches:
+gem 'counter_culture', '~> 0.1.33'
