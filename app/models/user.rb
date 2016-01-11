@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          # no need to have this now
          #:recoverable, :rememberable, :trackable, :validatable
 
+  # relations
+  has_many :tasks
+
   # validations
   # not 100% regexp
   validates :email, presence: true, format: { with: /\A[a-z0-9\.-_]+@[a-z0-9]+(-?[a-zA-Z0-9])*(\.[a-z](-?[a-z0-9])*)+\Z/ }
