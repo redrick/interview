@@ -30,6 +30,14 @@ class TasksController < AuthenticatedController
     respond_with @task, location: tasks_path
   end
 
+  def sort
+    params[:order].each do |key, value|
+      # we don't need any callbacks here
+      current_user.tasks.find(value[:id]).update_column(:sort_order, value[:position].to_i)
+    end
+    render :nothing => true
+  end
+
   private
 
   def task_params

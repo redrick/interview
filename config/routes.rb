@@ -5,6 +5,7 @@ Interview::Application.routes.draw do
 
   resources :tasks, except: [:show] do
     get :toggle, on: :member
+    put :sort, on: :collection
   end
 
   root 'dashboard#index'
