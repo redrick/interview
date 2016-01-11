@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 print 'Cleaning up the db: '
-[User].map(&:delete_all)
+[User, Task].map(&:delete_all)
 print "Done.\n"
 
 print 'Loading users: '
@@ -28,3 +28,9 @@ print 'Loading users: '
 end
 print "Done.\n"
 
+print 'Adding tasks: '
+users = User.all
+(1..10).each do |i|
+  Task.create(task: "Task ##{i}", user: users.sample, done_at: (rand(10)>5) ? Time.now : nil)
+end
+print "Done\n"

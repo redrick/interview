@@ -4,8 +4,9 @@ class Task < ActiveRecord::Base
 
   validates :task, presence: true
 
-  # we don't like default_scopes
-  scope :ordered, -> { order('created_at desc') }
+  # we don't like default_scopes, sort primarily by our sort_order then created_at
+  scope :ordered, -> { order('sort_order asc, created_at desc') }
+  scope :unfinished, -> { where(done_at: nil) }
 
   # simple alias
   def done?

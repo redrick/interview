@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111194533) do
+ActiveRecord::Schema.define(version: 20160111212102) do
 
   create_table "tasks", force: true do |t|
     t.integer  "user_id"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 20160111194533) do
     t.datetime "done_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sort_order", default: 0
   end
 
+  add_index "tasks", ["sort_order"], name: "index_tasks_on_sort_order"
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
 
   create_table "users", force: true do |t|
