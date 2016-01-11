@@ -52,8 +52,16 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :test, :development do
+  gem 'debugger', platforms: :mri_19
+  gem 'byebug', platforms: [:mri_21, :mri_22]
+  gem 'pry-byebug'
+  gem 'pry'
+end
 
 group :development do
   # for generating base layout with navigation
   gem 'rails_layout'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
