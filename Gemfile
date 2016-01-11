@@ -33,10 +33,13 @@ group :doc do
 end
 
 # slim markup
-gem 'slim'
+gem 'slim-rails'
 
 # user auth
 gem 'devise'
+
+# some nice bootrapping, 3.3.5 because of dependencies on sass/sass-rails
+gem 'bootstrap-sass', '~> 3.3.5'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -49,3 +52,8 @@ gem 'devise'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development do
+  # for generating base layout with navigation
+  gem 'rails_layout'
+end
