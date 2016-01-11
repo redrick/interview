@@ -35,6 +35,9 @@ end
 # slim markup
 gem 'slim'
 
+# user auth
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
