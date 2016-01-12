@@ -4,7 +4,7 @@ Interview::Application.routes.draw do
   devise_for :managers
 
   resources :tasks, except: [:show] do
-    get :toggle, on: :member
+    patch :toggle, on: :member
     put :sort, on: :collection
   end
 

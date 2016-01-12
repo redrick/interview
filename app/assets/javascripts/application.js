@@ -14,6 +14,7 @@
 //= require jquery_ujs
 // http://josephndungu.com/tutorials/ajax-sortable-lists-rails-4
 //= require html.sortable
+//= require jquery-ui/effect.all
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .

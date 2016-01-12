@@ -1,6 +1,6 @@
 class TasksController < AuthenticatedController
 
-  before_action :get_task, only: [:edit, :update, :destroy]
+  before_action :get_task, only: [:edit, :update, :destroy, :toggle]
 
   def index
     @tasks = current_user.tasks.ordered
@@ -8,26 +8,37 @@ class TasksController < AuthenticatedController
 
   def new
     @task = Task.new
-    respond_with @task
   end
 
   def edit
-    respond_with @task
   end
 
   def update
-    @task = @task.update(task_params)
-    respond_with @task, location: tasks_path
+    respond_to do |format|
+      if @task.update(task_params)
+        format.js
+      else
+        format.js { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def create
-    @task = current_user.tasks.create(task_params)
-    respond_with @task, location: tasks_path
+    @task = current_user.tasks.new(task_params)
+    respond_to do |format|
+      if @task.save
+        format.js
+      else
+        format.js { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
     @task.destroy
-    respond_with @task, location: tasks_path
+    respond_to do |format|
+      format.js
+    end
   end
 
   def sort
@@ -36,6 +47,11 @@ class TasksController < AuthenticatedController
       current_user.tasks.find(value[:id]).update_column(:sort_order, value[:position].to_i)
     end
     render :nothing => true
+  end
+
+  def toggle
+    @task.toggle_done
+    render :update
   end
 
   private

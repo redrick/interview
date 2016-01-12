@@ -1,4 +1,20 @@
 .row
-  .col-md-6.sortable
-    h1 Tasks
+  .col-md-6
+    .page-header
+      .btn-toolbar.pull-right
+        .btn-group
+          == link_to 'New task', new_task_path, class: 'btn btn-success', remote: true
+      h1 Tasks
+.row
+  #task_list.col-md-6.sortable
     == render partial: 'task', collection: @tasks
+
+#task_form_modal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="true")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
+        h4#myModalLabel.modal-title
+      .modal-body
+      .modal-footer
+        button.btn.btn-default(type="button" data-dismiss="modal") Close
