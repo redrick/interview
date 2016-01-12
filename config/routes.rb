@@ -15,6 +15,6 @@ Interview::Application.routes.draw do
     resources :users
   end
 
-  root 'dashboard#index'
+  root 'tasks#index'
 
 end
