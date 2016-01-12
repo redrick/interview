@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   # relations
   has_many :tasks
+  has_many :categories
 
   # validations
   # not 100% regexp

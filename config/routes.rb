@@ -7,6 +7,7 @@ Interview::Application.routes.draw do
     patch :toggle, on: :member
     put :sort, on: :collection
   end
+  resources :categories, except: [:show]
 
   root 'dashboard#index'
 

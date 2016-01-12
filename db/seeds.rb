@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 print 'Cleaning up the db: '
-[User, Task].map(&:delete_all)
+[User, Task, Category].map(&:delete_all)
 print "Done.\n"
 
 print 'Loading users: '
@@ -28,9 +28,15 @@ print 'Loading users: '
 end
 print "Done.\n"
 
+print 'Adding categories: '
+%w(Home Work Shopping Personal).each { |name| User.all.each { |u| u.categories.create(name: name) } }
+print "Done\n"
+
 print 'Adding tasks: '
 users = User.all
 (1..10).each do |i|
-  Task.create(task: "Task ##{i}", user: users.sample, done_at: (rand(10)>5) ? Time.now : nil)
+  user = users.sample
+  category = user.categories.sample
+  Task.create(task: "Task ##{i}", user: user, category: category, done_at: (rand(10)>5) ? Time.now : nil)
 end
 print "Done\n"

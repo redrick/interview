@@ -1,6 +1,7 @@
 class TasksController < AuthenticatedController
 
   before_action :get_task, only: [:edit, :update, :destroy, :toggle]
+  before_action :get_categories, only: [:new, :edit, :update, :toggle]
 
   def index
     @tasks = current_user.tasks.ordered
@@ -57,11 +58,15 @@ class TasksController < AuthenticatedController
   private
 
   def task_params
-    params.require(:task).permit(:task)
+    params.require(:task).permit(:task, :category_id)
   end
 
   def get_task
     @task = current_user.tasks.find(params[:id])
+  end
+
+  def get_categories
+    @categories = current_user.categories.ordered
   end
 
 end
