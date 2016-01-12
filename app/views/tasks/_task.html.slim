@@ -1,7 +1,7 @@
 .panel.panel-default *{'data-id' => task.id, class: (task.done?) ? 'done' : '' }
   .panel-header
     - if task.category
-    span.small.category= task.category.name
+      span.small.category= task.category.name
     = link_to "×", task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'close'
   .panel-body
     span.toggle

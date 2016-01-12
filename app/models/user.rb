@@ -6,8 +6,10 @@ class User < ActiveRecord::Base
          #:recoverable, :rememberable, :trackable, :validatable
 
   # relations
-  has_many :tasks
-  has_many :categories
+  has_many :tasks, :dependent => :destroy
+  has_many :categories, :dependent => :destroy
+
+  scope :ordered, -> { order([:surname, :name]) }
 
   # validations
   # not 100% regexp
@@ -21,4 +23,16 @@ class User < ActiveRecord::Base
   def admin?
     self.is_a?(Admin)
   end
+
+  # get all descendant classes
+  def self.user_types
+    descendants.map(&:name)
+  end
+
+  def full_name
+    full_name = [surname.presence, name.presence].compact.join(', ')
+    full_name = 'N/A' if full_name.blank?
+    full_name
+  end
+
 end
