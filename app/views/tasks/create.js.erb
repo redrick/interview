@@ -1,0 +1,4 @@
+$('#task_list').prepend("<%= j render partial: 'task', locals: {task: @task } %>");
+$('#task_list .panel[data-id=<%= @task.id%>]').effect('pulsate');
+$('#task_form_modal').modal_success();
+$(document).trigger('tasks:change');

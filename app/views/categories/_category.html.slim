@@ -1,0 +1,6 @@
+.panel.panel-default *{'data-id' => category.id }
+  .panel-header
+    = link_to "×", category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'close'
+  .panel-body
+    span
+      = link_to category.name, edit_category_path(category), remote: true

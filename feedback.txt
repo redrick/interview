@@ -1,0 +1,7 @@
+- tests
+- nicer UI :)
+- multiple categories
+- tags
+- due date
+- some jobs processing (sidekiq) for notifications (mails)
+- latest RoR

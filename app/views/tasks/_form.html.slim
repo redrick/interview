@@ -1,0 +1,11 @@
+= form_for(@task, remote: true, html: {role: :form, 'data-model' => 'task'}) do |f|
+  .form-group
+    = f.label :task, 'Task', class: 'control-label'
+    = f.text_field :task, class: 'form-control'
+    span.help-block
+  .form-group
+    = f.label :category, 'Category', class: 'control-label'
+    = f.select :category_id, options_for_select(@categories.map{|c| [c.name, c.id]}, @task.category_id), { include_blank: true, class: 'form-control' }
+  
+  .actions
+    = f.submit add_or_update(@task)

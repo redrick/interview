@@ -1,0 +1,30 @@
+.sortable-placeholder {
+  border: 1px dashed #CCC;
+  background-color: #f9f9f9;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.sortable {
+  display: list-item;
+}
+.panel-header .close {
+  padding-right: 5px;
+}
+.panel-body {
+  span.toggle {
+    width: 20px;
+    display: inline-block;
+  }
+}
+
+.done {
+  background-color: #e0e0e0;
+  text-decoration: line-through;
+}
+
+span.category {
+  padding-left: 20px;
+  font-style: italic;
+  color: #a0a0a0;
+}

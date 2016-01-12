@@ -1,0 +1,20 @@
+.row
+  .col-md-6
+    .page-header
+      .btn-toolbar.pull-right
+        .btn-group
+          == link_to 'New user', new_admin_user_path, class: 'btn btn-success', remote: true
+      h1 Users
+.row
+  #user_list.col-md-6
+    == render partial: 'user', collection: @users
+
+#user_form_modal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="true")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
+        h4#myModalLabel.modal-title
+      .modal-body
+      .modal-footer
+        button.btn.btn-default(type="button" data-dismiss="modal") Close
