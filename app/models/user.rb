@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
 
   validates :name, length: {minimum: 2, maximum: 32}, allow_blank: true
   validates :surname, length: {minimum: 2, maximum: 32}, allow_blank: true
+
+  def admin?
+    self.is_a?(Admin)
+  end
 end
